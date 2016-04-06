@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Foxword</title>
+    <meta name="description" content="Foxword - guess word by picture">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <!-- jquery -->
+    <link rel="stylesheet" href="./css/jquery.mobile.structure-1.4.5.min.css">
+    <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="./js/jquery.mobile-1.4.5.min.js"></script>
+    <!-- app css -->
+    <link rel="stylesheet" href="./css/mytheme.css" type="text/css">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/fxos-icons.css">
+    <!-- app js -->
+    <script src="./js/async_storage.js"></script>
+    <script src="./js/Word.js"></script>
+    <script src="./js/Level.js"></script>
+    <script src="./js/main.js"></script>
+  </head>
+  <body>
+
+    <!-- === INDEX ===  -->
+    <div data-role="page" id="home" data-theme="a">
+      <div data-role="content">
+
+        <img src="./img/icons/avatar.png" alt="avatar" class="avatar">
+        <div class="player-name">
+          Hráč
+        </div>
+        <div class="coins-container">
+          <div class="coins"></div>
+        </div>
+
+        <a href="#settings" aria-hidden="true" data-icon="settings" data-role="button" data-theme="a" class="settings-link"></a>
+
+        <div class="cleaner"></div>
+        <img src="img/logo.png" alt="logo" class="logo">
+
+        <!-- Use this installation button to install locally without going  through the marketpace (see app.js) -->
+        <!-- <a href="#" id="install-btn">Install</a> -->
+
+        <nav>
+            <ul class="menu" id="index-menu"></ul>
+        </nav>
+
+      </div><!-- $content -->
+    </div><!-- $page #home -->
+
+
+    <!-- === CHOOSE LANGUAGE PAGE ===  -->
+    <div data-role="page" id="choose-language" data-theme="a">
+      <div data-role="header">
+          <a href="#home" aria-hidden="true" data-icon="left" class="back-link"></a>
+          <h1>Choose Language</h1>
+      </div>
+      <div data-role="content">
+          <nav>
+              <ul class="menu">
+                <li><a href="#play" class="playbutton new" data-role="button" data-theme="a" data-game-lvl="0" data-game-lang="cs">Česky</a></li>
+                <!-- <li><a href="#play" class="playbutton" data-role="button" data-theme="a" data-game-lvl="0" data-game-lang="en">English</a></li> -->
+              </ul>
+          </nav>
+      </div><!-- $content -->
+    </div>  <!-- $page #choose-language -->
+
+
+
+    <!-- === PLAYING PAGE ===  -->
+
+    <div data-role="page" id="play" data-theme="a">
+      <div data-role="header">
+        <a href="#home" aria-hidden="true" data-icon="left" class="back-link"></a>
+        <h1 class="level">Level: <span class="level-num"></span></h1>
+
+        <div class="coins-container">
+          <div class="coins"></div>
+        </div>
+        <div class="cleaner"></div>
+
+      </div><!-- $header -->
+
+      <div data-role="content">
+        <div class="helpRemovedWord-msg">
+          &minus; 20 <img src="./img/icons/coin.png" alt="coins" class="coins-img">
+        </div>
+        <div class="lack-coins-msg">
+          You do not have enough of coins.
+        </div>
+        <div class="right-word-msg">
+          Right!
+        </div>
+        <div class="done-level-msg">
+          <div>
+            Great!<br>Level completed!
+          </div>
+        </div>
+
+        <div class="grid-container">
+          <div class="grid">
+            <div class="grid-row">
+                <div class="grid-col">
+                    <div class="grid-letter" id="g11">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g12">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g13">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g14">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g15">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g16">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter ban" id="g17">&nbsp;</div>
+                </div>
+                 <div class="grid-col">
+                    <div class="grid-letter ban" id="g18">&nbsp;</div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-col">
+                    <div class="grid-letter" id="g21">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g22">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g23">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g24">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g25">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g26">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter ban" id="g27">&nbsp;</div>
+                </div>
+                 <div class="grid-col">
+                    <div class="grid-letter ban" id="g28">&nbsp;</div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-col">
+                    <div class="grid-letter" id="g31">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g32">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g33">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g34">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g35">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g36">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter ban" id="g37">&nbsp;</div>
+                </div>
+                 <div class="grid-col">
+                    <div class="grid-letter ban" id="g38">&nbsp;</div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-col">
+                    <div class="grid-letter" id="g41">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g42">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g43">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g44">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g45">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g46">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g47">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g48">&nbsp;</div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-col">
+                    <div class="grid-letter" id="g51">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g52">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g53">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g54">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g55">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g56">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g57">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g58">&nbsp;</div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-col">
+                    <div class="grid-letter" id="g61">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g62">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g63">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g64">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g65">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g66">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g67">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g68">&nbsp;</div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-col">
+                    <div class="grid-letter" id="g71">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g72">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g73">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g74">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g75">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g76">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g77">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g78">&nbsp;</div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-col">
+                    <div class="grid-letter" id="g81">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g82">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g83">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g84">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g85">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g86">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g87">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g88">&nbsp;</div>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-col">
+                    <div class="grid-letter" id="g91">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g92">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g93">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g94">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g95">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g96">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g97">&nbsp;</div>
+                </div>
+                <div class="grid-col">
+                    <div class="grid-letter" id="g98">&nbsp;</div>
+                </div>
+            </div>
+
+          </div><!-- .grid -->
+
+          <div class="grid-row">
+              <div class="grid-col">
+                  <div class="letter" id="l1">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="letter" id="l2">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="letter" id="l3">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="letter" id="l4">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="letter" id="l5">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="letter" id="l6">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="help1">?</div>
+              </div>
+          </div>
+          <div class="grid-row">
+              <div class="grid-col">
+                  <div class="letter" id="l7">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="letter" id="l8">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="letter" id="l9">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="letter" id="l10">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="letter" id="l11">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="letter" id="l12">&nbsp;</div>
+              </div>
+              <div class="grid-col">
+                  <div class="help2">x</div>
+              </div>
+          </div>
+        </div><!-- .grid-container -->
+
+        <div class="preview-container">
+            <a href="#pop-pic" data-rel="popup" data-position-to="window" data-transition="pop" data-shadow="true" class="preview-pic">
+                <img alt="preview">
+            </a>
+        </div><!-- .preview-container -->
+
+        <!-- POP UP PICTURE -->
+        <div data-role="popup" id="pop-pic" data-overlay-theme="b">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" aria-hidden="true" class="ui-btn-left">Close</a>
+            <img alt="preview" title="" id="fimg" class="fimg">
+            <div class="imgtitle"></div>
+        </div><!-- $popup #pop-picture -->
+
+
+      </div><!-- $content -->
+    </div><!-- $page #play -->
+
+
+
+    <!-- === SETTINGS PAGE ===  -->
+    <div data-role="page" id="settings" data-theme="a">
+      <div data-role="header">
+          <a href="#home" aria-hidden="true" data-icon="left" class="back-link"></a>
+          <h1>Settings</h1>
+          <a href="#about" aria-hidden="true" data-icon="info" data-role="button" data-theme="a" class="info-link"></a>
+          <div class="cleaner"></div>
+      </div>
+      <div data-role="content">
+
+        <form>
+          <div class="grid-row">
+            <div class="grid-col">
+              <input type="text" name="input-player-name" placeholder="Nickname" id="input-player-name">
+              <button type="button" name="button" id="tick-btn" aria-hidden="true" data-icon="tick" class="tick-btn"></button>
+              <div class="coins-container">
+                <div class="coins"></div>
+              </div>
+              <div class="name-saved-msg">Saved!</div>
+              <div class="cleaner"></div>
+            </div>
+
+            <div class="grid-col">
+              <div id="image-presenter">
+                <img src="./img/icons/avatar.png" alt="portrét" class="player-photo" id="player-photo">
+            </div>
+            </div>
+          </div>
+        </form>
+
+        <h2 class="header-your-games">Your games</h2>
+
+        <div id="your-games">
+          <div class="grid-row"></div>
+        </div>
+        <!-- <div id="logger"></div> -->
+      </div><!-- $content -->
+    </div>  <!-- $page #settings -->
+
+
+    <!-- === ABOUT PAGE ===  -->
+    <div data-role="page" id="about" data-theme="a">
+      <div data-role="header">
+        <a href="#settings" aria-hidden="true" data-icon="left" class="back-link"></a>
+        <h1>About</h1>
+      </div>
+      <div data-role="content">
+        <p>Vaším úkolem je poznat podle obrázku slovo a&nbsp;doplnit jej do křížovky. Kliknutím na obrázek se Vám zobrazí v&nbsp;plné velikosti.</p>
+        <p>
+         Obrázky byly získány z&nbsp;veřejných zdrojů. Není-li dílo public domain, je šířeno pod jednou z&nbsp;těchto licencí.
+        </p>
+        <p>
+         CC0<br>
+         <a href="https://creativecommons.org/publicdomain/zero/1.0/">https://creativecommons.org/publicdomain/zero/1.0/</a><br>
+        </p>
+        <p>
+         CC BY 3.0<br>
+         <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a><br>
+        </p>
+        <p>
+         CC BY-SA 3.0<br>
+         <a href="https://creativecommons.org/licenses/by-sa/3.0/">https://creativecommons.org/licenses/by-sa/3.0/</a><br>
+        </p>
+        <p>
+         CC BY-NC-ND 3.0<br>
+         <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/">https://creativecommons.org/licenses/by-nc-nd/3.0/</a>
+        </p>
+        <p>
+          Autor: Radek Hiess<br>
+          Verze: 1.0.0<br>
+          GNU GPL
+        </p>
+      </div><!-- $content -->
+    </div>  <!-- $page #about -->
+
+    <!-- === COMPLETE GAME PAGE ===  -->
+    <div data-role="page" id="complete-game" data-theme="a">
+      <div data-role="header">
+        <a href="#home" aria-hidden="true" data-icon="left" class="back-link"></a>
+        <h1 class="level">Finished!</h1>
+
+        <div class="coins-container">
+          <div class="coins"></div>
+        </div>
+        <div class="cleaner"></div>
+
+      </div><!-- $header -->
+
+      <div data-role="content" class="align-center">
+        <p>
+          CONGRATULATIONS!
+        </p>
+        <p>
+          You finished the game.
+        </p>
+        <p>
+          You can play the game again from the first level.
+        </p>
+        <p>
+          <a href="#home" class="complete-home-btn" data-role="button" data-theme="a">Home</a>
+        </p>
+
+      </div><!-- $content -->
+    </div>  <!-- $page #complete-game -->
+
+    <!-- js for picking image -->
+    <script src="./js/pickimg.js"></script>
+  </body>
+</html>

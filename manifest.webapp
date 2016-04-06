@@ -1,0 +1,28 @@
+{
+	"version": "0.9",
+	"name": "Foxword",
+	"description": "Foxword - guess word by picture",
+	"launch_path": "/index.html",
+	"icons": {
+		"16": "/img/icons/f-16.png",
+		"48": "/img/icons/f-48.png",
+		"128": "/img/icons/f-128.png"
+	},
+	"developer": {
+		"name": "Radek Hiess",
+		"url": "http://rh-web.cz",
+		"installs_allowed_from": ["*"]
+	},
+	"locales": {
+		"cs": {
+			"description": "Foxword - uhodni slovo podle obrázku",
+			"developer": {
+				"name": "Radek Hiess",
+				"url": "http://rh-web.cz"
+			}
+		}
+	},
+	"default_locale": "en",
+	"fullscreen": "true",
+	"orientation": "portrait"
+}

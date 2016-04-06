@@ -1,0 +1,11 @@
+/**
+* CSS for declaration of font
+*/
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('./Fira-Sans/FiraSans-Regular.ttf');
+    src: local('Fira Sans Regular'),
+         url('./Fira-Sans/FiraSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}

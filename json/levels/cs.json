@@ -1,0 +1,107 @@
+{
+"0":{
+		"wrd0": {
+	    "name":"malir",
+	    "wrd":[
+				"malir.jpg",
+				"CC0",
+				"m","a","l","í","ř"
+			],
+			"row":2,
+			"col":3,
+			"orient":"vertical"
+	  },
+		"wrd1": {
+	    "name":"bar",
+	    "wrd":[
+	      "bar.jpg",
+	      "public domain",
+	      "b","a","r"
+			],
+			"row":3,
+			"col":2,
+			"orient":"horizontal"
+	  },
+		"wrd2": {
+	    "name":"bricho",
+	    "wrd":[
+	      "bricho.jpg",
+				"public domain",
+				"b","ř","i","c","h","o"
+			],
+			"row":6,
+			"col":2,
+			"orient":"horizontal"
+	  }
+	},
+	"1":{
+		"wrd0":{
+			"name":"kocka",
+			"wrd":[
+				"kocka.jpg",
+				"public domain",
+				"k","o","č","k","a"
+			],
+			"row":2,
+			"col":3,
+			"orient":"vertical"
+		},
+		"wrd1":{
+			"name":"oko",
+			"wrd":[
+				"oko.jpg",
+				"public domain",
+				"o","k","o"
+			],
+			"row":3,
+			"col":3,
+			"orient":"horizontal"
+		},
+		"wrd2":{
+			"name":"padat",
+			"wrd":[
+				"padat.jpg",
+				"public domain",
+				"p","a","d","a","t"
+			],
+			"row":6,
+			"col":2,
+			"orient":"horizontal"
+		}
+	},
+	"2":{
+		"wrd0":{
+			"name":"mechanik",
+			"wrd":[
+				"mechanik.jpg",
+				"CC BY-SA 3.0 Mujimber",
+				"m","e","c","h","a","n","i","k"
+			],
+			"row":1,
+			"col":5,
+			"orient":"vertical"
+		},
+		"wrd1":{
+			"name":"mnich",
+			"wrd":[
+				"mnich.jpg",
+				"CC BY-NC-ND 3.0 tyrannus",
+				"m","n","i","c","h"
+			],
+			"row":4,
+			"col":1,
+			"orient":"horizontal"
+		},
+		"wrd2":{
+			"name":"drak",
+			"wrd":[
+				"drak.jpg",
+				"public domain",
+				"d","r","a","k"
+			],
+			"row":8,
+			"col":2,
+			"orient":"horizontal"
+		}
+	}
+}
