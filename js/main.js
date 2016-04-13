@@ -1,4 +1,4 @@
-/*
+/**
 * Main app JS functions
 *
 * @author: Radek Hiess
@@ -54,8 +54,9 @@ var gameLang;
 
 /**
 * Unique random numbers generator
-* permalink: http://stackoverflow.com/a/19351899
+* Source: Stack Overflow - http://stackoverflow.com/a/19351899
 *
+* @author jfriend00 - http://stackoverflow.com/users/816620/jfriend00
 * @method randomInt
 * @param {int} start - start number
 * @param {int} end - end number
@@ -83,14 +84,14 @@ function randomInt(start, end) {
 * @method displayCoins
 */
 function displayCoins() {
-  asyncStorage.getItem('coins', function(value) {
-    console.log('coins:', value);
-    if(value === null) {
+  asyncStorage.getItem('coins', function(coins) {
+    console.log('coins:', coins);
+    if(coins === null) {
       /* default value */
       $('.coins').text('0');
     } else {
       /* stored value */
-      $('.coins').text(value);
+      $('.coins').text(coins);
     }
   });
 }; /* displayCoins() */
@@ -263,8 +264,8 @@ Level.prototype.activateWord = function(wordOrientation) {
 		$('div[' + wordOrientation[0] + '="' + wordOrientation[1] + '"]').addClass('active');
 
 		/* set picture */
-		$('.preview-pic img').attr('src','img/pics/cs/' + this.word0.wordArr[0] );
-		$('.fimg').attr('src','img/pics/cs/' + this.word0.wordArr[0] );
+		$('.preview-pic img').attr('src','img/pics/' + this.word0.wordArr[0] );
+		$('.fimg').attr('src','img/pics/' + this.word0.wordArr[0] );
 
 		$("#fimg").attr("title", this.word0.wordArr[1] );
 		if($("#fimg").attr("title")!="") $(".imgtitle").text($("#fimg").attr("title"));
@@ -283,8 +284,8 @@ Level.prototype.activateWord = function(wordOrientation) {
 		$('div[' + wordOrientation[0] + '="' + wordOrientation[1] + '"]').addClass('active');
 
 		/* set picture */
-		$('.preview-pic img').attr('src','img/pics/cs/' + this.word1.wordArr[0] );
-		$('.fimg').attr('src','img/pics/cs/' + this.word1.wordArr[0] );
+		$('.preview-pic img').attr('src','img/pics/' + this.word1.wordArr[0] );
+		$('.fimg').attr('src','img/pics/' + this.word1.wordArr[0] );
 
 		$("#fimg").attr("title", this.word1.wordArr[1] );
 		if($("#fimg").attr("title")!="") $(".imgtitle").text($("#fimg").attr("title"));
@@ -301,8 +302,8 @@ Level.prototype.activateWord = function(wordOrientation) {
 		$('div[' + wordOrientation[0] + '="' + wordOrientation[1] + '"]').addClass('active');
 
 		/* set picture */
-		$('.preview-pic img').attr('src','img/pics/cs/' + this.word2.wordArr[0] );
-		$('.fimg').attr('src','img/pics/cs/' + this.word2.wordArr[0] );
+		$('.preview-pic img').attr('src','img/pics/' + this.word2.wordArr[0] );
+		$('.fimg').attr('src','img/pics/' + this.word2.wordArr[0] );
 
 		$("#fimg").attr("title", this.word2.wordArr[1] );
 		if($("#fimg").attr("title")!="") $(".imgtitle").text($("#fimg").attr("title"));
@@ -468,12 +469,12 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 
 				console.log("vlozeno do doneWords");
 				console.log(this.doneWordsInLevel);
-
-        var stringifyDoneWordsInLevel = JSON.stringify(this.doneWordsInLevel);
-        console.log(stringifyDoneWordsInLevel);
+        //
+        // var doneWordsInLevel = this.doneWordsInLevel;
+        // console.log(doneWordsInLevel);
 
         /* uloži do asyncStorage */
-        asyncStorage.setItem('doneWordsInLevel', stringifyDoneWordsInLevel, function() {
+        asyncStorage.setItem('doneWordsInLevel', this.doneWordsInLevel, function() {
           console.log('doneWordsInLevel stored');
         });
 
@@ -489,13 +490,13 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
         $('.right-word-msg').fadeIn('fast').delay(1500).fadeOut('fast');
 
         /* přičtu coins a uložim */
-        asyncStorage.getItem('coins', function(value) {
+        asyncStorage.getItem('coins', function(coins) {
 
           /* za jedno slovo je odměna 5 coins */
-          value = value + 5;
-          $('.coins').text(value);
+          coins = coins + 5;
+          $('.coins').text(coins);
 
-          asyncStorage.setItem('coins', value, function() {
+          asyncStorage.setItem('coins', coins, function() {
             console.log('coins stored');
           });
         });
@@ -503,6 +504,8 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 				/*  Pokud jsou všechna tři slova správně vyplněna, načte se nextLevel   */
         if(this.doneWordsInLevel[gameLang].doneWords.length == 3) {
 					console.info("NACTI NEXT LEVEL");
+
+          // console.log(savedGames);
 
           /* vibrace */
           if ('vibrate' in navigator) {
@@ -516,17 +519,11 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
           $('.done-level-msg').fadeIn('fast').delay(2000).fadeOut('fast');
 
           /* increment and save saved-games */
-          asyncStorage.getItem('saved-games', function(value) {
-            var savedGames = null;
-            if(value!==null) {
-              savedGames = JSON.parse(value);
-            }
+          asyncStorage.getItem('saved-games', function(savedGames) {
             if(savedGames !== null) {
               console.log(savedGames);
               // console.log(savedGames[gameLang].lvl);
               savedGames[gameLang].lvl = parseInt(savedGames[gameLang].lvl) + 1;
-              savedGames=JSON.stringify(savedGames);
-              console.log(savedGames);
 
               asyncStorage.setItem('saved-games', savedGames, function() {
                 console.log('saved-games stored');
@@ -544,16 +541,14 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
             this.doneWordsInLevel[gameLang].doneWords = [];
 
             /* resetování doneWordsInLevel */
-						asyncStorage.getItem('doneWordsInLevel', function(value) {
-				      if(value!==null) {
-				        var parsedDoneWordsInLevel = JSON.parse(value);
-				        console.log(parsedDoneWordsInLevel);
-				        parsedDoneWordsInLevel[gameLang].doneWords = [];
-				        console.log(parsedDoneWordsInLevel);
-				        parsedDoneWordsInLevel = JSON.stringify(parsedDoneWordsInLevel);
+						asyncStorage.getItem('doneWordsInLevel', function(doneWordsInLevel) {
+				      if(doneWordsInLevel!==null) {
+				        console.log(doneWordsInLevel);
+				        doneWordsInLevel[gameLang].doneWords = [];
+				        console.log(doneWordsInLevel);
 
 				        /* uloži do asyncStorage */
-				        asyncStorage.setItem('doneWordsInLevel', parsedDoneWordsInLevel, function() {
+				        asyncStorage.setItem('doneWordsInLevel', doneWordsInLevel, function() {
 				          console.log('doneWordsInLevel reseted');
 				        });
 				      }
@@ -587,16 +582,14 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
             this.doneWordsInLevel[gameLang].doneWords = [];
 
             /* resetování doneWordsInLevel */
-						asyncStorage.getItem('doneWordsInLevel', function(value) {
-				      if(value!==null) {
-				        var parsedDoneWordsInLevel = JSON.parse(value);
-				        console.log(parsedDoneWordsInLevel);
-				        parsedDoneWordsInLevel[gameLang].doneWords = [];
-				        console.log(parsedDoneWordsInLevel);
-				        parsedDoneWordsInLevel = JSON.stringify(parsedDoneWordsInLevel);
+						asyncStorage.getItem('doneWordsInLevel', function(doneWordsInLevel) {
+				      if(doneWordsInLevel!==null) {
+				        console.log(doneWordsInLevel);
+				        doneWordsInLevel[gameLang].doneWords = [];
+				        console.log(doneWordsInLevel);
 
 				        /* uloži do asyncStorage */
-				        asyncStorage.setItem('doneWordsInLevel', parsedDoneWordsInLevel, function() {
+				        asyncStorage.setItem('doneWordsInLevel', doneWordsInLevel, function() {
 				          console.log('doneWordsInLevel reseted');
 				        });
 				      }
@@ -712,7 +705,7 @@ console.log(this.doneWordsInLevel);
   /* get helpRemovedWord */
   asyncStorage.getItem('helpRemovedWord', function(value) {
     if(value!==null) {
-      helpRemovedWord = JSON.parse(value);
+      helpRemovedWord = value;
       /* pokud byla využita nápověda 2, skryje písmena */
       if(helpRemovedWord.indexOf(wordOrientation[1]) > -1) {
         $(".letter.random").addClass("helped-letter");
@@ -724,7 +717,7 @@ console.log(this.doneWordsInLevel);
   /* get helpShownLetters */
   asyncStorage.getItem('helpShownLetters', function(value) {
     if(value!==null) {
-      helpShownLetters = JSON.parse(value);
+      helpShownLetters = value;
       console.log(helpShownLetters);
       if(helpShownLetters[0] == gameLang) {
         for (var i=1; i< helpShownLetters.length; i++) {
@@ -782,12 +775,6 @@ $(document).ready(function() {
   //   console.log('coins stored');
   // });
 
-  // asyncStorage.setItem('saved-games', '{"savedGames": [["cs",1,"Čeština"],	["en",0,"English"]]}', function()
-  // asyncStorage.setItem('saved-games', '{"savedGames": ["cs":{"lang": "cs","lvl": 1,"desc": "Čeština"}, "en":{"lang": "en","lvl": 0,"desc": "English"}]}', function() {
-  // asyncStorage.setItem('saved-games', '{"cs":{"lvl": 2,"desc": "Čeština"}, "en":{"lvl": 0,"desc": "English"}}', function() {
-  //   console.log('saved-games stored');
-  // });
-
   // asyncStorage.setItem('doneWordsInLevel', '{"cs": {"doneWords": ["bricho","malir"]},"en": {"doneWords": ["cat"]}}', function() {
   //   console.log('doneWordsInLevel stored');
   // });
@@ -808,9 +795,6 @@ $(document).ready(function() {
   //   console.log("helpShownLetters removed");
   // });
 
-// console.log("savedGames 2:   " + savedGames);
-// console.log(savedGames.cs.lvl + " - "+ savedGames.cs.lang);
-
 }); /* document.ready */
 
 
@@ -818,19 +802,12 @@ $(document).ready(function() {
 
 
 $(document).on( "pagebeforeshow", "#home", function () {
-  // až budu měnit img v nastavení, zkusit "pageinit"  pageshow
-
-  // location.reload(true);
 
   console.log("#home pagebeforeshow  ==========");
 
   /* get saved-games */
-  asyncStorage.getItem('saved-games', function(value) {
-    var savedGames = null;
+  asyncStorage.getItem('saved-games', function(savedGames) {
     $("#index-menu").empty();
-    if(value!==null) {
-      savedGames = JSON.parse(value);
-    }
     if(savedGames !== null) {
       console.log(savedGames);
       /* display li buttons in #home */
@@ -838,7 +815,7 @@ $(document).on( "pagebeforeshow", "#home", function () {
           $("#index-menu").append('<li><a href="#play" class="playbutton ui-link ui-btn ui-btn-a ui-shadow ui-corner-all" role="button" data-role="button" data-theme="a" data-game-lvl="' + savedGames[prop].lvl + '" data-game-lang="' + prop + '">' + savedGames[prop].desc + '</a></li>');
       }
     }
-    $("#index-menu").append('<li><a role="button" class="ui-link ui-btn ui-btn-a ui-shadow ui-corner-all" href="#choose-language" data-role="button" data-theme="a">New Game</a></li>');
+    $("#index-menu").append('<li><a role="button" class="ui-link ui-btn ui-btn-a ui-shadow ui-corner-all" href="#new-game" data-role="button" data-theme="a">New Game</a></li>');
   });
 
   /* display player-name */
@@ -889,20 +866,19 @@ $(document).on('click', '.playbutton', function() {
     /* save new game to store */
 
     var gameDesc = $(this).text();
-    asyncStorage.getItem('saved-games', function(value) {
-      var savedGames = null;
-      if(value!==null) {
-        savedGames = JSON.parse(value);
+    asyncStorage.getItem('saved-games', function(savedGames) {
+      if(savedGames!==null) {
         var newGame = {lvl:0,desc:gameDesc};
         savedGames[gameLang] = newGame;
         console.log(savedGames);
-        savedGames=JSON.stringify(savedGames);
+
         asyncStorage.setItem('saved-games', savedGames, function() {
           console.log('saved-games stored');
         });
       } else {
       	/* vytvoření nové hry */
-        asyncStorage.setItem('saved-games', '{"' + gameLang + '":{"lvl": 0,"desc": "' + gameDesc + '"}}', function() {
+        var newGame = JSON.parse('{"'+gameLang+'":{"lvl": 0,"desc": "'+gameDesc+'"}}');
+        asyncStorage.setItem('saved-games', newGame, function() {
           console.log('saved-games stored');
         });
       }
@@ -921,7 +897,6 @@ $(document).on('click', '.playbutton', function() {
 $(document).on('pagebeforeshow', '#play', function(){
 
   console.log("#play pagebeforeshow  ==========");
-
 
   // reset
   $(".grid-letter").each(function() {
@@ -944,8 +919,8 @@ $(document).on('pagebeforeshow', '#play', function(){
 */
   /* načtení abecedy ze souboru */
   $.ajaxSetup({ mimeType: "text/plain" });
-  $.getJSON( "./json/alphabets/" + gameLang + ".json").done(function(data) {
-      console.log("soubor ./json/alphabets/"+gameLang+".json byl nacten");
+  $.getJSON( "./json/alphabet/" + gameLang + ".json").done(function(data) {
+      console.log("soubor ./json/alphabet/"+gameLang+".json byl nacten");
       alphabet = data;
       console.log("abeceda: ");
       console.log(alphabet);
@@ -970,19 +945,16 @@ $(document).on('pagebeforeshow', '#play', function(){
       console.log("soubor ./json/levels/"+gameLang+".json byl nacten");
 
       /* get doneWordsInLevel */
-      asyncStorage.getItem('doneWordsInLevel', function(value) {
-        console.log(value);
+      asyncStorage.getItem('doneWordsInLevel', function(doneWordsInLevel) {
+        console.log(doneWordsInLevel);
 
-        if(value!==null) {
-          var parsedDoneWordsInLevel = JSON.parse(value);
-          console.log(parsedDoneWordsInLevel);
-          /* naplnime level.donewordsinlevel[gameLang] default hodnotami */
-          if(parsedDoneWordsInLevel[gameLang] === undefined) {
-          	parsedDoneWordsInLevel[gameLang] = {};
-          	parsedDoneWordsInLevel[gameLang].doneWords = [];
+        if(doneWordsInLevel!==null) {
+          if(doneWordsInLevel[gameLang] === undefined) {
+          	doneWordsInLevel[gameLang] = {};
+          	doneWordsInLevel[gameLang].doneWords = [];
           }
-          console.log(parsedDoneWordsInLevel);
-          level.doneWordsInLevel = parsedDoneWordsInLevel;
+          console.log(doneWordsInLevel);
+          level.doneWordsInLevel = doneWordsInLevel;
         } else {
         	level.doneWordsInLevel[gameLang] = {};
           level.doneWordsInLevel[gameLang].doneWords = [];
@@ -1006,7 +978,7 @@ $(document).on('pagebeforeshow', '#play', function(){
   /* get helpRemovedWord */
   asyncStorage.getItem('helpRemovedWord', function(value) {
     if(value!==null) {
-      helpRemovedWord = JSON.parse(value);
+      helpRemovedWord = value;
     }
     console.log(helpRemovedWord);
   });
@@ -1014,14 +986,10 @@ $(document).on('pagebeforeshow', '#play', function(){
   /* display coins */
   displayCoins();
 
-// }); /* document.pagebeforeshow #play */
-// $(document).on( "pageshow", "#play", function () {
-
   /*
       TAP ON GRID-LETTER AND ACTIVATE IT
   */
   $(document).off('click', '.visible').on('click', '.visible',function(e) {
-  // $(document).on('click', '.visible', function() {
     /* zjistíme, o jaké slovo se jedná */
     console.log(".visible.click()");
 
@@ -1056,7 +1024,6 @@ $(document).on('pagebeforeshow', '#play', function(){
       TAP ON A LETTER IN BOTTOM OFFER
   */
   $(document).off('click', '.letter').on('click', '.letter',function(e) {
-  // $(document).on('click', '.letter', function() {
     var selectedLetter = $(this).text();
     var selectedLetterId = $(this).attr("id");  //attr("id");
     console.log("selectedLetter:  "  + selectedLetter);
@@ -1072,7 +1039,7 @@ $(document).on('pagebeforeshow', '#play', function(){
   /*
     HELP 1 - ODKRYTÍ NÁHODNÉHO PÍSMENE
   */
-  $(document).off('click', '.help1').on('click', '.help1',function(e) {
+  $(document).off('click', '#help1-btn').on('click', '#help1-btn',function(e) {
     console.log("help1 clicked");
 
     /* za jedno slovo je strženo 20 coins */
@@ -1090,14 +1057,13 @@ $(document).on('pagebeforeshow', '#play', function(){
           /* přidám do helpShownLetters */
           asyncStorage.getItem('helpShownLetters', function(value) {
             if(value!==null) {
-              helpShownLetters = JSON.parse(value);
+              helpShownLetters = value;
               helpShownLetters.push(helpRevealedLetter);
             } else {
               helpShownLetters.push(gameLang);
               helpShownLetters.push(helpRevealedLetter);
             }
             console.log(helpShownLetters);
-            helpShownLetters = JSON.stringify(helpShownLetters);
 
             /* uloži do asyncStorage */
             asyncStorage.setItem('helpShownLetters', helpShownLetters, function() {
@@ -1109,6 +1075,7 @@ $(document).on('pagebeforeshow', '#play', function(){
                 console.log('coins stored  -20');
 
                 /* zobrazí zprávu o odečtení coins */
+                $( "#pop-help1" ).popup( "close" );
                 $('.helpRemovedWord-msg').fadeIn('fast').delay(1000).fadeOut('fast');
               });
             });
@@ -1121,14 +1088,14 @@ $(document).on('pagebeforeshow', '#play', function(){
       }
     });
 
-  }); /* document.onclick .help1 */
+  }); /* document.onclick #help1-btn */
 
 /* ----------------------------------- */
 
   /*
     HELP 2 - ODSTRANĚNÍ PÍSMEN, KTERÁ JSOU V NABÍDCE NAVÍC
   */
-  $(document).off('click', '.help2').on('click', '.help2',function(e) {
+  $(document).off('click', '#help2-btn').on('click', '#help2-btn',function(e) {
     console.log("help2 clicked");
 
     /* za jedno slovo je strženo 20 coins */
@@ -1144,13 +1111,12 @@ $(document).on('pagebeforeshow', '#play', function(){
         /* přidám do helpRemovedWord */
         asyncStorage.getItem('helpRemovedWord', function(value) {
           if(value!==null) {
-            helpRemovedWord = JSON.parse(value);
+            helpRemovedWord = value;
             helpRemovedWord.push(wordOrientation[1]);
           } else {
             helpRemovedWord.push(wordOrientation[1]);
           }
           console.log(helpRemovedWord);
-          helpRemovedWord = JSON.stringify(helpRemovedWord);
 
           /* uloži do asyncStorage */
           asyncStorage.setItem('helpRemovedWord', helpRemovedWord, function() {
@@ -1164,6 +1130,7 @@ $(document).on('pagebeforeshow', '#play', function(){
               console.log('coins stored  -20');
 
               /* zobrazí zprávu o odečtení coins */
+              $( "#pop-help2" ).popup( "close" );
               $('.helpRemovedWord-msg').fadeIn('fast').delay(1000).fadeOut('fast');
             });
 
@@ -1175,7 +1142,7 @@ $(document).on('pagebeforeshow', '#play', function(){
       }
     });
 
-  }); /* document.onclick .help2 */
+  }); /* document.onclick #help2-btn */
 
 }); /* document.pageshow #play */
 
@@ -1204,7 +1171,8 @@ $(document).on( "pagebeforeshow", "#settings", function () {
   asyncStorage.getItem('player-photo', function(value) {
     if(value !== null) {
       value = window.URL.createObjectURL(value);
-      console.log('player-photo:', value);
+      console.log('player-photo:');
+      console.log(value);
       if(value !== null) {
         $('.player-photo').attr('src', value);
       }
@@ -1213,15 +1181,12 @@ $(document).on( "pagebeforeshow", "#settings", function () {
   });
 
   /* get and display saved-games */
-  asyncStorage.getItem('saved-games', function(value) {
+  asyncStorage.getItem('saved-games', function(savedGames) {
     $("#your-games").empty();
-    if(value!==null) {
-      savedGames = JSON.parse(value);
+    if(savedGames===null) {
+      // $("#your-games").append('<a role="button" class="ui-link ui-btn ui-btn-a ui-shadow ui-corner-all" href="#new-game" data-role="button" data-theme="a">Nová hra</a>');
+      $("#your-games").append('You don\'t have any open game.');
     } else {
-    	// $("#your-games").append('<a role="button" class="ui-link ui-btn ui-btn-a ui-shadow ui-corner-all" href="#choose-language" data-role="button" data-theme="a">Nová hra</a>');
-      $("#your-games").append('You do not have any open game.');
-    }
-    if(savedGames !== null) {
       console.log(savedGames);
       for ( var prop in savedGames ) {
         if(parseInt(savedGames[prop].lvl) == 0 || savedGames[prop].lvl === undefined ) {
@@ -1243,32 +1208,45 @@ $(document).on( "pagebeforeshow", "#settings", function () {
       var resetGame = $(this).attr("data-game-lang");
       console.log(resetGame);
 
-      /* resetujeme počet levelů hry */
-      savedGames[resetGame].lvl = 0;
-      savedGames=JSON.stringify(savedGames);
-      console.log(savedGames);
+      asyncStorage.getItem('saved-games', function(savedGames) {
+        if(savedGames !== null) {
+          /* resetujeme počet levelů hry */
+          savedGames[resetGame].lvl = 0;
+          console.log(savedGames);
 
-      asyncStorage.setItem('saved-games', savedGames, function() {
-        $(".settings-game-lvl").text("1");
-        $("#reset-button").prop("disabled", true);
-        console.log('saved-games reseted');
+          asyncStorage.setItem('saved-games', savedGames, function() {
+            $(".settings-game-lvl").text("1");
+            $("#reset-button").prop("disabled", true);
+            console.log('saved-games reseted');
+          });
+        }
       });
-
-      // level.doneWordsInLevel[gameLang] = {};
-      // level.doneWordsInLevel[gameLang].doneWords = [];
+      // level.doneWordsInLevel[resetGame] = {};
+      // level.doneWordsInLevel[resetGame].doneWords = [];
 
       /* resetování doneWordsInLevel */
-  		asyncStorage.getItem('doneWordsInLevel', function(value) {
-        if(value!==null) {
-          var parsedDoneWordsInLevel = JSON.parse(value);
-          parsedDoneWordsInLevel[gameLang].doneWords = [];
-          console.log(parsedDoneWordsInLevel);
-          parsedDoneWordsInLevel = JSON.stringify(parsedDoneWordsInLevel);
+  		asyncStorage.getItem('doneWordsInLevel', function(doneWordsInLevel) {
+        if(doneWordsInLevel!==null) {
+          doneWordsInLevel[resetGame].doneWords = [];
+          console.log(doneWordsInLevel);
 
           /* uloži do asyncStorage */
-          asyncStorage.setItem('doneWordsInLevel', parsedDoneWordsInLevel, function() {
+          asyncStorage.setItem('doneWordsInLevel', doneWordsInLevel, function() {
             console.log('doneWordsInLevel reseted');
           });
+        }
+      });
+
+      /* get helpShownLetters */
+      asyncStorage.getItem('helpShownLetters', function(value) {
+        if(value!==null) {
+          helpShownLetters = value;
+          if(helpShownLetters[0] == resetGame) {
+            /* reset helpShownLetters */
+            asyncStorage.removeItem('helpShownLetters', function(value) {
+              console.log("helpShownLetters removed");
+            });
+          }
         }
       });
     } /* if confirm */
@@ -1296,23 +1274,19 @@ $(document).on( "pagebeforeshow", "#settings", function () {
 
 /* ----------------------------------- */
 
-$(document).on( "pagebeforeshow", "#choose-language", function () {
+$(document).on( "pagebeforeshow", "#new-game", function () {
 
-  console.log("#choose-language pagebeforeshow  ==========");
+  console.log("#new-game pagebeforeshow  ==========");
 
-  asyncStorage.getItem('saved-games', function(value) {
-    var savedGames = null;
-    if(value!==null) {
-      savedGames = JSON.parse(value);
-    }
+  asyncStorage.getItem('saved-games', function(savedGames) {
     if(savedGames !== null) {
       /* hide li buttons of saved games */
       for ( var prop in savedGames ) {
-          $('#choose-language [data-game-lang="' + prop + '"]').hide();
+          $('#new-game [data-game-lang="' + prop + '"]').hide();
       }
     }
   });
-}); /* document.pagebeforeshow #choose-language */
+}); /* document.pagebeforeshow #new-game */
 
 /* ----------------------------------- */
 
@@ -1323,19 +1297,16 @@ $(document).on( "pageshow", "#complete-game", function () {
   /* display coins */
   displayCoins();
 
-  asyncStorage.getItem('saved-games', function(value) {
-    var savedGames = null;
-    if(value!==null) {
-      savedGames = JSON.parse(value);
-    }
-    /* resetujeme počet levelů hry */
-    savedGames[gameLang].lvl = 0;
-    savedGames=JSON.stringify(savedGames);
-    console.log(savedGames);
+  asyncStorage.getItem('saved-games', function(savedGames) {
+    if(savedGames!==null) {
+      /* resetujeme počet levelů hry */
+      savedGames[gameLang].lvl = 0;
+      console.log(savedGames);
 
-    asyncStorage.setItem('saved-games', savedGames, function() {
-      console.log('saved-games reseted');
-    });
+      asyncStorage.setItem('saved-games', savedGames, function() {
+        console.log('saved-games reseted');
+      });
+    }
   });
 
 }); /* document.pageshow #complete-game */

@@ -1,4 +1,4 @@
-/*
+/**
 *
 * @author: Radek Hiess
 * @link: http://rh-web.cz
@@ -20,7 +20,15 @@ var Word = function () {
 };
 
 /**
+ * array with info about word
+ * @property wordArr
+ * @type {array}
+ */
+Word.prototype.wordArr = null;
+
+/**
  * array of letters declared for the word
+ * @property declaredLetters
  * @type {array}
  */
 Word.prototype.declaredLetters = null;

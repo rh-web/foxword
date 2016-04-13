@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/fxos-icons.css">
     <!-- app js -->
+    <script src="./js/install-button.js"></script>
     <script src="./js/async_storage.js"></script>
     <script src="./js/Word.js"></script>
     <script src="./js/Level.js"></script>
@@ -25,10 +26,11 @@
     <!-- === INDEX ===  -->
     <div data-role="page" id="home" data-theme="a">
       <div data-role="content">
-
-        <img src="./img/icons/avatar.png" alt="avatar" class="avatar">
+        <div class="avatar-presenter">
+          <img src="./img/icons/avatar.png" alt="avatar" class="avatar">
+        </div>
         <div class="player-name">
-          Hráč
+          Player
         </div>
         <div class="coins-container">
           <div class="coins"></div>
@@ -39,8 +41,8 @@
         <div class="cleaner"></div>
         <img src="img/logo.png" alt="logo" class="logo">
 
-        <!-- Use this installation button to install locally without going  through the marketpace (see app.js) -->
-        <!-- <a href="#" id="install-btn">Install</a> -->
+        <!-- installation button to install locally -->
+        <button id="install-btn">Install</button>
 
         <nav>
             <ul class="menu" id="index-menu"></ul>
@@ -50,21 +52,22 @@
     </div><!-- $page #home -->
 
 
-    <!-- === CHOOSE LANGUAGE PAGE ===  -->
-    <div data-role="page" id="choose-language" data-theme="a">
+    <!-- === NEW GAME PAGE ===  -->
+    <div data-role="page" id="new-game" data-theme="a">
       <div data-role="header">
           <a href="#home" aria-hidden="true" data-icon="left" class="back-link"></a>
-          <h1>Choose Language</h1>
+          <h1>New Game</h1>
       </div>
       <div data-role="content">
           <nav>
               <ul class="menu">
-                <li><a href="#play" class="playbutton new" data-role="button" data-theme="a" data-game-lvl="0" data-game-lang="cs">Česky</a></li>
-                <!-- <li><a href="#play" class="playbutton" data-role="button" data-theme="a" data-game-lvl="0" data-game-lang="en">English</a></li> -->
+                <li><a href="#play" class="playbutton" data-role="button" data-theme="a" data-game-lvl="0" data-game-lang="cs">Česky</a></li>
+                <li><a href="#play" class="playbutton" data-role="button" data-theme="a" data-game-lvl="0" data-game-lang="en">English</a></li>
+                <li><a href="#play" class="playbutton" data-role="button" data-theme="a" data-game-lvl="0" data-game-lang="de">Detush</a></li>
               </ul>
           </nav>
       </div><!-- $content -->
-    </div>  <!-- $page #choose-language -->
+    </div>  <!-- $page #new-game -->
 
 
 
@@ -78,6 +81,9 @@
         <div class="coins-container">
           <div class="coins"></div>
         </div>
+        <div class="avatar-presenter">
+          <img src="./img/icons/avatar.png" alt="avatar" class="avatar">
+        </div>
         <div class="cleaner"></div>
 
       </div><!-- $header -->
@@ -87,7 +93,7 @@
           &minus; 20 <img src="./img/icons/coin.png" alt="coins" class="coins-img">
         </div>
         <div class="lack-coins-msg">
-          You do not have enough of coins.
+          You don't have enough coins.
         </div>
         <div class="right-word-msg">
           Right!
@@ -357,7 +363,7 @@
                   <div class="letter" id="l6">&nbsp;</div>
               </div>
               <div class="grid-col">
-                  <div class="help1">?</div>
+                <a href="#pop-help1" data-rel="popup" data-position-to="window" data-transition="pop" data-shadow="true" class="help1">?</a>
               </div>
           </div>
           <div class="grid-row">
@@ -380,7 +386,7 @@
                   <div class="letter" id="l12">&nbsp;</div>
               </div>
               <div class="grid-col">
-                  <div class="help2">x</div>
+                  <a href="#pop-help2" data-rel="popup" data-position-to="window" data-transition="pop" data-shadow="true" class="help2">x</a>
               </div>
           </div>
         </div><!-- .grid-container -->
@@ -392,11 +398,33 @@
         </div><!-- .preview-container -->
 
         <!-- POP UP PICTURE -->
-        <div data-role="popup" id="pop-pic" data-overlay-theme="b">
+        <div data-role="popup" id="pop-pic" data-overlay-theme="a">
             <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" aria-hidden="true" class="ui-btn-left">Close</a>
             <img alt="preview" title="" id="fimg" class="fimg">
             <div class="imgtitle"></div>
         </div><!-- $popup #pop-picture -->
+
+        <!-- POP UP HELP1 -->
+        <div data-role="popup" id="pop-help1" data-overlay-theme="a">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" aria-hidden="true" class="ui-btn-left">Close</a>
+            <button type="button" name="help1-btn" id="help1-btn" class="help1-btn ui-btn ui-shadow ui-corner-all">
+              Show random letter
+              <span class="cost">
+                &minus; 20 <img src="./img/icons/coin.png" alt="coins" class="coins-img">
+              </span>
+            </button>
+        </div><!-- $popup #pop-help1 -->
+
+        <!-- POP UP HELP2 -->
+        <div data-role="popup" id="pop-help2" data-overlay-theme="a">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" aria-hidden="true" class="ui-btn-left">Close</a>
+            <button type="button" name="help2-btn" id="help2-btn" class="help2-btn ui-btn ui-shadow ui-corner-all">
+              Remove letters
+              <span class="cost">
+                &minus; 20 <img src="./img/icons/coin.png" alt="coins" class="coins-img">
+              </span>
+            </button>
+        </div><!-- $popup #pop-help2 -->
 
 
       </div><!-- $content -->
@@ -418,7 +446,7 @@
           <div class="grid-row">
             <div class="grid-col">
               <input type="text" name="input-player-name" placeholder="Nickname" id="input-player-name">
-              <button type="button" name="button" id="tick-btn" aria-hidden="true" data-icon="tick" class="tick-btn"></button>
+              <button type="button" name="tick-btn" id="tick-btn" aria-hidden="true" data-icon="tick" class="tick-btn"></button>
               <div class="coins-container">
                 <div class="coins"></div>
               </div>
@@ -427,19 +455,19 @@
             </div>
 
             <div class="grid-col">
-              <div id="image-presenter">
+              <div id="photo-presenter">
                 <img src="./img/icons/avatar.png" alt="portrét" class="player-photo" id="player-photo">
             </div>
+            <div class="change-photo">Change</div>
             </div>
           </div>
         </form>
 
-        <h2 class="header-your-games">Your games</h2>
+        <h2 class="header-your-games">Your Games</h2>
 
         <div id="your-games">
           <div class="grid-row"></div>
         </div>
-        <!-- <div id="logger"></div> -->
       </div><!-- $content -->
     </div>  <!-- $page #settings -->
 

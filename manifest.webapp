@@ -23,6 +23,5 @@
 		}
 	},
 	"default_locale": "en",
-	"fullscreen": "true",
-	"orientation": "portrait"
+	"fullscreen": "true"
 }

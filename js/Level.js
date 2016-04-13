@@ -1,4 +1,4 @@
-/*
+/**
 *
 * @author: Radek Hiess
 * @link: http://rh-web.cz
@@ -20,13 +20,8 @@ var Level = function (currentLevel) {
 };
 
 /**
- * array with info about word
- * @type {array}
- */
-Level.prototype.wordArr = null;
-
-/**
  * array of right completed words in level
+ * @property doneWordsInLevel
  * @type {array}
  */
 Level.prototype.doneWordsInLevel = null;

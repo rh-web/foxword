@@ -29,10 +29,6 @@ body.ui-overlay-a {
 /*   background-color:transparent;  */
 }
 
-/*  .ui-overlay-c, .ui-page-theme-c, .ui-page-theme-c .ui-panel-wrapper {
-	background-color:transparent
-}  */
-
 /* ============================ */
 /* ===== GLOBAL AND INDEX ===== */
 
@@ -173,9 +169,9 @@ nav ul.menu {
 
 nav ul.menu a.ui-link,
 html body .ui-page-theme-a .ui-btn.ui-btn-a.complete-home-btn {
-	/*background: #C60000;
+	background: #C60000;
 	background: -moz-linear-gradient(top, #FC0808 0%, #C60000 100%);
-	background: linear-gradient(to bottom, #FC0808 0%, #C60000 100%);*/
+	background: linear-gradient(to bottom, #FC0808 0%, #C60000 100%);
   border: 0px solid transparent;
   color: #fff;
   display: block;
@@ -203,11 +199,14 @@ nav ul.menu a.ui-link:active {
 	color: #000;
 }
 
+.avatar-presenter {
+	float: left;
+	width: 50px;
+}
+
 .avatar {
 	border: 2px solid #fff;
-	float: left;
-	height: 50px;
-	width: 50px;
+	width: 100%;
 
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -220,6 +219,13 @@ nav ul.menu a.ui-link:active {
 	/*padding: 0.7em 0 0.7em 0.5em;*/
 	padding: 0.9em 0 0.9em 0.5em;
 	/*background-color: rgba(255,255, 0, 0.5);*/
+}
+
+button#install-btn {
+	border: 0;
+	-webkit-border-radius: 3em;
+	-moz-border-radius: 3em;
+	border-radius: 3em;
 }
 
 
@@ -236,17 +242,23 @@ nav ul.menu a.ui-link:active {
 	width: 100%;
 }
 
-/*.play-container {
-	background: rgba(0,0,255,0.25);
-	margin: 0 auto;
-}*/
+#play .avatar-presenter {
+	display: none;
+	position: absolute;
+	right: 0.5em;
+	width: 30px;
+	top: 0.5em;
+}
 
 /* responsive design */
-/*@media only screen and (min-width: 340px) {
-	.play-container {
-		width: 80%;
+@media only screen and (min-width: 768px) {
+	#play .avatar-presenter {
+		display: block;
 	}
-}*/
+	.ui-page-theme-a .ui-header .coins-container {
+		right: 2em;
+	}
+}
 
 
 .right-word-msg, .done-level-msg, .helpRemovedWord-msg, .lack-coins-msg {
@@ -300,7 +312,7 @@ nav ul.menu a.ui-link:active {
 	text-align: center;
 	top: 130px;
 	width: 10em;
-	z-index: 100;
+	z-index: 1500;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -441,24 +453,35 @@ a.preview-pic img#fimg {
 
 }
 
-/* help buttons */
-/*.help {
-	float: right;
-	position: relative;
-	top: -6em;
-}*/
-
 .help1, .help2 {
+	display: block;
 	background: rgb(38, 173, 40);
 	background: -moz-linear-gradient(top, rgb(3, 179, 57) 0%, rgb(0, 50, 0) 100%);
 	background: linear-gradient(to bottom, rgb(3, 179, 57) 0%, rgb(0, 50, 0) 100%);
 	color: #fff;
+	text-decoration: none;
+}
+
+#pop-help1, #pop-help2 {
+	background-color: transparent;
+	border: 0;
+	box-shadow: none;
+}
+
+.ui-btn.help1-btn, .ui-btn.help2-btn {
+	-webkit-border-radius: 3em;
+	-moz-border-radius: 3em;
+	border-radius: 3em;
+}
+
+.cost {
+	display: inline-block;
+	margin-left: 1em;
 }
 
 .helped-letter {
 	visibility: hidden;
 }
-
 
 /* ========================= */
 /* ===== SETTINGS PAGE ===== */
@@ -487,10 +510,26 @@ html body .ui-page-theme-a .ui-btn.tick-btn:active {
 	color: #000;
 }
 
-.player-photo {
+#photo-presenter {
 	float: right;
-	height: 100px;
-	width: 100px;
+	position: relative;
+	width: 50%;
+}
+
+.change-photo {
+	display: block;
+	background: #000;
+	left: 50%;
+	max-width: 200px;
+	position: relative;
+	text-align: center;
+	width: 50%;
+}
+
+.player-photo {
+	margin-top: 1em;
+	max-width: 200px;
+	width: 100%;
 }
 
 .name-saved-msg {
