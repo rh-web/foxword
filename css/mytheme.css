@@ -290,13 +290,13 @@ html body .ui-group-theme-a a:visited {
 html .ui-bar-a a:hover,
 html .ui-body-a a:hover,
 html body .ui-group-theme-a a:hover {
-	color: #3388cc /*{a-link-hover}*/;
+	color: #000 /*{a-link-hover}*/;
 }
 .ui-page-theme-a a:active,
 html .ui-bar-a a:active,
 html .ui-body-a a:active,
 html body .ui-group-theme-a a:active {
-	color: #3388cc /*{a-link-active}*/;
+	color: #000 /*{a-link-active}*/;
 }
 /* Button up */
 .ui-page-theme-a .ui-btn,
@@ -398,8 +398,7 @@ html head + body .ui-body-a.ui-focus {
 
 /* pop-up overlay color */
 #pop-pic-screen.ui-overlay-a,
-#pop-help1-screen.ui-overlay-a,
-#pop-help2-screen.ui-overlay-a {
+#pop-help-screen.ui-overlay-a {
 	background-color:#333333;
 	background-image: none;
 }

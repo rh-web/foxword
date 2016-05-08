@@ -7,6 +7,7 @@
 */
 
 console.info("App start");
+console.log(navigator.userAgent);
 
 /**
  * alphabet for declareLetters function
@@ -39,16 +40,22 @@ var wordOrientation = [];
 var uniqueRandoms = [];
 
 /**
- * return number of game which was chosen
+ * number of game which was chosen
  * @type {int}
  */
 var gameLevel;
 
 /**
- * return language of game which was chosen
+ * language of game which was chosen
  * @type {String}
  */
 var gameLang;
+
+/**
+* id of temporary next letter in grid
+* @type {String}
+*/
+var tmpNextId;
 
 /* ################################################################################## */
 
@@ -157,7 +164,7 @@ console.log(doneWordsInLevel);
 			this.col++;
 
       if(isDone){
-        $( "#g"+this.row+this.col ).text( this.wordArr[i] );  /*   <------ vypíše písmeno do gridu */
+        $( "#g"+this.row+this.col ).text( this.wordArr[i] );  /*   <------ write letter to grid */
         $( "#g"+this.row+this.col ).addClass("doneWord");
       }
 
@@ -175,7 +182,7 @@ console.log(doneWordsInLevel);
 			this.row++;
 
       if(isDone){
-        $( "#g"+this.row+this.col ).text( this.wordArr[i] );  /*   <------ vypíše písmeno do gridu */
+        $( "#g"+this.row+this.col ).text( this.wordArr[i] );  /*   <------ write letter to grid */
         $( "#g"+this.row+this.col ).addClass("doneWord");
       }
 
@@ -196,9 +203,6 @@ console.log(doneWordsInLevel);
 * @method declareLetters
 */
 Word.prototype.declareLetters = function() {
-
-	// var alphabet = ["a","b","c","č","d","e","f","g","h","i","j","k","l","m","o","p","q","r","ř","s","š",
-  //                 "t","u","w","y","z","ž"];
 
 console.log(this.declaredLetters);
 
@@ -252,12 +256,11 @@ Level.prototype.activateWord = function(wordOrientation) {
 	console.log(".active click activateWord" );
 
 	/* reset all active */
-	$(".active").removeClass("active");
+	$(".active").removeClass("active highlight");
 	$(".doneLetter").removeClass("doneLetter");
 	$(".full:not(.secondDoneWord)").text("\xA0");
 	$(".full").removeClass("full").addClass("empty");
   // $(".letter").addClass("hidden");
-
 
 	if(this.word0.name == wordOrientation[1]) {
 		/* word0 */
@@ -317,6 +320,9 @@ Level.prototype.activateWord = function(wordOrientation) {
     }
 	}
 
+  /* highlight first letter */
+  $( ".empty.active:first" ).addClass("highlight");
+
 }; // activateWord()
 
 /* ################################################################################## */
@@ -333,15 +339,22 @@ Level.prototype.activateWord = function(wordOrientation) {
 * @param {String} selectedLetterId - id of letter which was clicked
 */
 Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, selectedLetterId) {
-	/*
-    ukládat si id letter v gridu
-		ukládat si id letter v bottom offer - on click přesunout z bottom do gridu a vice versa
-	 */
 
-	var tmpFirstId;
+  console.log("tmpNextId** " + tmpNextId);
+  var tmpFirstId;
 	var tmpLastId = $( ".active:last" ).attr('id');
 	var rightWord = "";
 	var tmpWord;
+
+  if(tmpNextId == tmpLastId) {
+    tmpWord += $("#"+tmpNextId).text();
+  }
+  if ($( "#"+tmpNextId ).hasClass("doneWord") || $( "#"+tmpNextId ).hasClass("secondDoneWord")) {
+    if(tmpNextId != tmpLastId) {
+      tmpNextId++;
+      this.clickOnBottomOffer(wordOrientation, selectedLetter, selectedLetterId);
+    }
+  }
 
 	/////////////////////
 
@@ -364,56 +377,48 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 
 		///////////////////////
 
-    /* zjistí id buňky v gridu, do které se doplní písmeno */
+    // highlight next letter
+    if ($( ".empty.active:eq(1)" ).hasClass("doneWord") || $( ".empty.active:eq(1)" ).hasClass("secondDoneWord")) {
+      $( ".empty.active:eq(2)" ).addClass("highlight");
+    } else {
+      $( ".empty.active:eq(1)" ).addClass("highlight");
+    }
+
+    /* find id of cell in grid and write letter into it  */
 		if(  $( ".empty.active:first" ).hasClass("doneLetter")  ) {
 			if(wordOrientation[0]=="horizontal"){
-				tmpFirstId = $( ".empty.active:first" ).attr('id'); // toto inkrementovat ....
+				tmpFirstId = $( ".empty.active:first" ).attr('id');
 				$( "#"+tmpFirstId ).removeClass("doneLetter empty").addClass("full secondDoneWord");
 
 				tmpFirstId = tmpFirstId.substring(1, 3);
 				tmpFirstId = parseInt(tmpFirstId);
 				tmpFirstId = tmpFirstId+1;
+        tmpNextId = tmpFirstId+2;
 				tmpFirstId ="g"+tmpFirstId;
 
 			} else {
-				tmpFirstId = $( ".empty.active:first" ).attr('id'); // toto inkrementovat ....
+				tmpFirstId = $( ".empty.active:first" ).attr('id');
 				$( "#"+tmpFirstId ).removeClass("doneLetter empty").addClass("full secondDoneWord");
-				//var i      = $("#"+tmpFirstId).attr(orientation+"order");
-				//i          = parseInt(i);
 				var i      = tmpFirstId.substring(1, 2);
 				i          = parseInt(i);
 				i++;
+        tmpNextId = i+2;
 				tmpFirstId ="g"+i+tmpFirstId.substring(2, 3);
 			}
 		} else {
-			tmpFirstId = $( ".empty.active:first" ).attr('id');
+      tmpFirstId = $( ".empty.active:first" ).attr('id');
+      tmpNextId = $( ".empty.active:eq(1)" ).attr("id");
 		}
 
 		$( "#"+selectedLetterId).addClass("hidden");
 
 		// var helpActive=$(".active").attr("letter");
 		console.log("selectedLetter- " + selectedLetter);
-		// console.log(".activate attr letter- "+ helpActive );
 		console.log("tmpFirstId- " + tmpFirstId);
 		console.log("tmpLastId- " + tmpLastId);
 		console.log("rightWord- " + rightWord);
+    console.log("tmpNextId- " + tmpNextId);
 
-
-		//$( ".active" ).each(function(index) {
-
-		/* přiřadím do array Matching verticalorder ID  a offer ID  */
-		/*
-		offerGridTmpId=$("#"+tmpFirstId ).attr(orientation+"order");
-		console.log(offerGridTmpId);
-		console.log($(this).attr("id"));
-
-		var wrdName = $("#"+tmpFirstId ).attr(orientation);
-		wrdName=wrdName+"Matching";
-		console.log(wrdName);
-
-		window[wrdName][ offerGridTmpId ] = $(this).attr("id");
-		console.log(window[wrdName]);
-		*/
 		/* naplnění písmenem */
 		if( $("#"+tmpFirstId).hasClass("doneWord") || $("#"+tmpFirstId).hasClass("secondDoneWord") ) {
 			tmpWord = $(".full").text();
@@ -423,7 +428,6 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 			console.log("...");
 			console.log(tmpWord);
 
-			//$( "#"+tmpFirstId ).removeClass("empty");
 		} else if( $("#"+tmpFirstId).hasClass("doneLetter") ) {
 			tmpWord = $(".full").text();
 			tmpWord += $("#"+tmpFirstId).text();
@@ -442,6 +446,8 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 
 		console.log("crossedLetters array: " + crossedLetters);
 
+    $( "#"+tmpFirstId ).removeClass("highlight");
+
 		if(tmpFirstId==tmpLastId){
 			if(tmpWord==rightWord) { /* if is successfuly matched */
 
@@ -455,30 +461,24 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
            console.error("Vibration not supported");
         }
 
-				/* slovo uložim do doneWordsInLevel */
+				/* save the word to doneWordsInLevel */
         if(this.word0.name == wordOrientation[1]) {
           this.doneWordsInLevel[gameLang].doneWords.push(this.word0.name);
-          // this.doneWordsInLevel.push(this.word0.name);
         } else if(this.word1.name == wordOrientation[1]) {
           this.doneWordsInLevel[gameLang].doneWords.push(this.word1.name);
-          // this.doneWordsInLevel.push(this.word1.name);
         } else if(this.word2.name == wordOrientation[1]) {
           this.doneWordsInLevel[gameLang].doneWords.push(this.word2.name);
-          // this.doneWordsInLevel.push(this.word2.name);
         }
 
 				console.log("vlozeno do doneWords");
 				console.log(this.doneWordsInLevel);
-        //
-        // var doneWordsInLevel = this.doneWordsInLevel;
-        // console.log(doneWordsInLevel);
 
-        /* uloži do asyncStorage */
+        /* save to asyncStorage */
         asyncStorage.setItem('doneWordsInLevel', this.doneWordsInLevel, function() {
           console.log('doneWordsInLevel stored');
         });
 
-        /* skryje bottom offer */
+        /* hide bottom offer */
         $( ".letter").addClass("hidden");
 
         $(".full").removeClass("full").addClass("doneWord");
@@ -486,14 +486,14 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 					$("#"+crossedLetters[i]).addClass("empty");
 				}
 
-        /* zobrazí zprávu spravně doplněnem slově */
+        /* show message */
         $('.right-word-msg').fadeIn('fast').delay(1500).fadeOut('fast');
 
-        /* přičtu coins a uložim */
+        /* add coins and save */
         asyncStorage.getItem('coins', function(coins) {
 
-          /* za jedno slovo je odměna 5 coins */
-          coins = coins + 5;
+          /* 3 coins reward per 1 word */
+          coins = coins + 3;
           $('.coins').text(coins);
 
           asyncStorage.setItem('coins', coins, function() {
@@ -501,9 +501,9 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
           });
         });
 
-				/*  Pokud jsou všechna tři slova správně vyplněna, načte se nextLevel   */
+				/* if all three words are right completed load next level  */
         if(this.doneWordsInLevel[gameLang].doneWords.length == 3) {
-					console.info("NACTI NEXT LEVEL");
+					console.info("LOAD NEXT LEVEL");
 
           // console.log(savedGames);
 
@@ -515,7 +515,7 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
              console.error("Vibration not supported");
           }
 
-          /* zobrazí zprávu spravně doplněnem slově */
+          /* show message */
           $('.done-level-msg').fadeIn('fast').delay(2000).fadeOut('fast');
 
           /* increment and save saved-games */
@@ -531,7 +531,7 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
             }
           });
 
-          /* Pokud je to posledni level, zobrazime obrazovku #complete-game */
+          /* if it is last level show page #complete-game */
 					if (this.currentLevel == levels.length - 1) {
 
 						console.info("YOU WIN THE GAME");
@@ -540,14 +540,14 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 						crossedLetters = [];
             this.doneWordsInLevel[gameLang].doneWords = [];
 
-            /* resetování doneWordsInLevel */
+            /* reset doneWordsInLevel */
 						asyncStorage.getItem('doneWordsInLevel', function(doneWordsInLevel) {
 				      if(doneWordsInLevel!==null) {
 				        console.log(doneWordsInLevel);
 				        doneWordsInLevel[gameLang].doneWords = [];
 				        console.log(doneWordsInLevel);
 
-				        /* uloži do asyncStorage */
+				        /* save to asyncStorage */
 				        asyncStorage.setItem('doneWordsInLevel', doneWordsInLevel, function() {
 				          console.log('doneWordsInLevel reseted');
 				        });
@@ -567,7 +567,7 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
             $.mobile.navigate( "#complete-game" );
 
 					 } else {
-					 	/* pokud to neni poslední level, načteme další */
+					 	/* if it is not last level load next level */
 
 						/* reset */
 						$(".grid-letter").each(function() {
@@ -581,14 +581,14 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 						console.log(this.doneWordsInLevel);
             this.doneWordsInLevel[gameLang].doneWords = [];
 
-            /* resetování doneWordsInLevel */
+            /* reset doneWordsInLevel */
 						asyncStorage.getItem('doneWordsInLevel', function(doneWordsInLevel) {
 				      if(doneWordsInLevel!==null) {
 				        console.log(doneWordsInLevel);
 				        doneWordsInLevel[gameLang].doneWords = [];
 				        console.log(doneWordsInLevel);
 
-				        /* uloži do asyncStorage */
+				        /* save to asyncStorage */
 				        asyncStorage.setItem('doneWordsInLevel', doneWordsInLevel, function() {
 				          console.log('doneWordsInLevel reseted');
 				        });
@@ -621,11 +621,11 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 			} else {
 				console.info("WRONG WORD");
 
-				/* problikne .grid-letter.active červeně */
+				/* blink .grid-letter.active red */
         $('.grid-letter.active').queue(function(){
         	$('.grid-letter.active').css('border-color','#FC0808');
         	setTimeout(function(){
-        		$('.grid-letter.active').css('border-color','#ffffff');
+        		$('.grid-letter.active').removeAttr('style');
         	},200);
         	$('.grid-letter.active').dequeue();
         });
@@ -634,10 +634,15 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 				/* reset */
 				crossedLetters = [];
 
+        $(".grid-letter").removeClass("highlight");
+
 				$(".full:not(.secondDoneWord, .doneWord)").text("\xA0");  // "\xA0"  = mezera
 				$( ".full").removeClass("full").addClass("empty");
 				$(".doneLetter").removeClass("doneLetter");
 				$(".letter").removeClass("hidden");
+
+        /* highlight first letter */
+        $( ".empty.active:first" ).addClass("highlight");
 
 			}
 		}
@@ -655,7 +660,7 @@ Level.prototype.clickOnBottomOffer = function(wordOrientation, selectedLetter, s
 Level.prototype.loadLevel = function() {
 
   console.log("loading level...");
-
+  
   this.word0.name = levels[this.currentLevel].wrd0.name;
   this.word0.wordArr = levels[this.currentLevel].wrd0.wrd;
 	this.word0.row = levels[this.currentLevel].wrd0.row;
@@ -684,7 +689,7 @@ Level.prototype.loadLevel = function() {
 	console.log("objekt slova:");
 	console.log(this.word2);
 
-console.log(this.doneWordsInLevel);
+  console.log(this.doneWordsInLevel);
 
   this.word0.writeToGrid(this.doneWordsInLevel);
   this.word0.declareLetters();
@@ -706,7 +711,7 @@ console.log(this.doneWordsInLevel);
   asyncStorage.getItem('helpRemovedWord', function(value) {
     if(value!==null) {
       helpRemovedWord = value;
-      /* pokud byla využita nápověda 2, skryje písmena */
+      /* if help 2 was used hide letters */
       if(helpRemovedWord.indexOf(wordOrientation[1]) > -1) {
         $(".letter.random").addClass("helped-letter");
       }
@@ -731,7 +736,7 @@ console.log(this.doneWordsInLevel);
     }
   });
 
-  /* vypsání čísla levelu */
+  /* write level number */
 	$(".level-num").text( parseInt(this.currentLevel)+1 );
 
 }; // loadLevel()
@@ -741,59 +746,12 @@ console.log(this.doneWordsInLevel);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-/*
-*
-   dát potom do jiného souboru a načíst za deklarací slov
-*
-*/
 $(document).ready(function() {
 	console.log("document.ready  ==========");
 
-  /* nastavi defaultni hodnoty */
+  /* set defaultni values */
   gameLevel = 0;
   gameLang = "cs";
-
-/* ............ */
-
-  /* DEVELOPER RESET STORAGE */
-
-  // asyncStorage.clear(function() {
-  //   console.log('asyncStorage.clear');
-  // });
-
-  /* DEVELOPER DEFAULT VALUES */
-
-  // asyncStorage.setItem('player-name', 'Honza', function() {
-  //   console.log('player-name stored');
-  // });
-
-  // asyncStorage.setItem('player-photo', 'img/icons/honza.png', function() {
-  //   console.log('player-photo stored');
-  // });
-
-  // asyncStorage.setItem('coins', 555, function() {
-  //   console.log('coins stored');
-  // });
-
-  // asyncStorage.setItem('doneWordsInLevel', '{"cs": {"doneWords": ["bricho","malir"]},"en": {"doneWords": ["cat"]}}', function() {
-  //   console.log('doneWordsInLevel stored');
-  // });
-  //
-  // asyncStorage.removeItem('coins', function(value) {
-  //   console.log("coins removed");
-  // });
-  // asyncStorage.removeItem('saved-games', function(value) {
-  //   console.log("saved-games removed");
-  // });
-  // asyncStorage.removeItem('doneWordsInLevel', function(value) {
-  //   console.log("doneWordsInLevel removed");
-  // });
-  // asyncStorage.removeItem('helpRemovedWord', function(value) {
-  //   console.log("helpRemovedWord removed");
-  // });
-  // asyncStorage.removeItem('helpShownLetters', function(value) {
-  //   console.log("helpShownLetters removed");
-  // });
 
 }); /* document.ready */
 
@@ -847,7 +805,7 @@ $(document).on( "pagebeforeshow", "#home", function () {
 /* ----------------------------------- */
 
 /*
-  PŘENOS LVL A LANG MEZI PAGES
+  PASS OF LVL AND LANG BETWEEN PAGES
 */
 $(document).on('click', '.playbutton', function() {
   // store some data
@@ -876,7 +834,7 @@ $(document).on('click', '.playbutton', function() {
           console.log('saved-games stored');
         });
       } else {
-      	/* vytvoření nové hry */
+      	/* create new game */
         var newGame = JSON.parse('{"'+gameLang+'":{"lvl": 0,"desc": "'+gameDesc+'"}}');
         asyncStorage.setItem('saved-games', newGame, function() {
           console.log('saved-games stored');
@@ -905,6 +863,7 @@ $(document).on('pagebeforeshow', '#play', function(){
 	  $(this).text("\xA0");
 	});
   $(".letter").addClass("hidden");
+  $(".grid-letter").removeClass("highlight");
   /* reset */
   crossedLetters = [];
 
@@ -912,12 +871,7 @@ $(document).on('pagebeforeshow', '#play', function(){
   var level = new Level(gameLevel);
   var helpRemovedWord = [];
 
-/*
-    levels = '{ "lvl0":{ "wrd0": { "name":"malir", "wrd":[ "malir.jpg", "CC0", "m","a","l","í","ř" ], "row":2, "col":3, "orient":"v" }, "wrd1": { "name":"bar", "wrd":[ "bar.jpg", "PD", "b","a","r" ], "row":3, "col":2, "orient":"h" }, "wrd2": { "name":"bricho", "wrd":[ "bricho.jpg", "PD", "b","ř","i","c","h","o" ], "row":6, "col":2, "orient":"h" } },"lvl1":{ "wrd0":{ "name":"kocka", "wrd":[ "kocka.jpg", "PD", "k","o","č","k","a" ], "row":2, "col":3, "orient":"v" }, "wrd1":{ "name":"oko", "wrd":[ "oko.jpg", "PD", "o","k","o" ], "row":3, "col":3, "orient":"h" }, "wrd2":{ "name":"padat", "wrd":[ "padat.jpg", "PD", "p","a","d","a","t" ], "row":6, "col":2, "orient":"h" } },"lvl2":{ "wrd0":{ "name":"mechanik", "wrd":[ "mechanik.jpg", "CC BY-SA 3.0 Mujimber", "m","e","c","h","a","n","i","k" ], "row":1, "col":5, "orient":"v" },"wrd1":{ "name":"mnich", "wrd":[ "mnich.jpg", "CC BY-NC-ND 3.0 tyrannus", "m","n","i","c","h" ], "row":4, "col":1, "orient":"h" },"wrd2":{ "name":"drak", "wrd":[ "drak.jpg", "PD", "d","r","a","k" ], "row":8, "col":2, "orient":"h" } }}';
-    levels = JSON.parse(levels);
-    levels = Object.values(levels);
-*/
-  /* načtení abecedy ze souboru */
+  /* load alphabet from file */
   $.ajaxSetup({ mimeType: "text/plain" });
   $.getJSON( "./json/alphabet/" + gameLang + ".json").done(function(data) {
       console.log("soubor ./json/alphabet/"+gameLang+".json byl nacten");
@@ -930,7 +884,7 @@ $(document).on('pagebeforeshow', '#play', function(){
     });
 
 
-  /* načtení levels ze souboru a volání loadLevel() */
+  /* load levels from file and call loadLevel() */
   $.ajaxSetup({ mimeType: "text/plain" });
   $.getJSON( "./json/levels/" + gameLang + ".json", function(data) {
 
@@ -1004,10 +958,9 @@ $(document).on('pagebeforeshow', '#play', function(){
     }
     console.log("wordOrientation pole::  "  + wordOrientation);
 
-    /* aktivujeme to slovo a vypíšeme mu deklarovaná písmena */
     level.activateWord(wordOrientation);
 
-    /* pokud byla využita nápověda 2, skryje písmena */
+    /* if help 2 was used hide letters */
     console.log(helpRemovedWord);
     console.log(helpRemovedWord.indexOf(wordOrientation[1]));
     console.log(wordOrientation[1]);
@@ -1037,15 +990,15 @@ $(document).on('pagebeforeshow', '#play', function(){
 /* ----------------------------------- */
 
   /*
-    HELP 1 - ODKRYTÍ NÁHODNÉHO PÍSMENE
+    HELP 1 - SHOW RANDOM LETTER
   */
   $(document).off('click', '#help1-btn').on('click', '#help1-btn',function(e) {
     console.log("help1 clicked");
 
-    /* za jedno slovo je strženo 20 coins */
+    /* price for 1 word is 20 coins */
     var COST = 20;
 
-    /* odečte coins za využití nápovědy a uloži */
+    /* subtract coins and save it */
     asyncStorage.getItem('coins', function(coins) {
       console.log(coins-COST);
 
@@ -1054,7 +1007,7 @@ $(document).on('pagebeforeshow', '#play', function(){
         if(helpRevealedLetter = helpShowLetter() ){
           var helpShownLetters = [];
 
-          /* přidám do helpShownLetters */
+          /* add to helpShownLetters */
           asyncStorage.getItem('helpShownLetters', function(value) {
             if(value!==null) {
               helpShownLetters = value;
@@ -1065,7 +1018,7 @@ $(document).on('pagebeforeshow', '#play', function(){
             }
             console.log(helpShownLetters);
 
-            /* uloži do asyncStorage */
+            /* save to asyncStorage */
             asyncStorage.setItem('helpShownLetters', helpShownLetters, function() {
               console.log('helpShownLetters stored');
 
@@ -1075,7 +1028,7 @@ $(document).on('pagebeforeshow', '#play', function(){
                 console.log('coins stored  -20');
 
                 /* zobrazí zprávu o odečtení coins */
-                $( "#pop-help1" ).popup( "close" );
+                $( "#pop-help" ).popup( "close" );
                 $('.helpRemovedWord-msg').fadeIn('fast').delay(1000).fadeOut('fast');
               });
             });
@@ -1083,7 +1036,7 @@ $(document).on('pagebeforeshow', '#play', function(){
 
         }  // if helpRevealedLetter = helpShownLetters()
       } else {
-        /* zobrazí zprávu o nedostatku coins */
+        /* show message */
         $('.lack-coins-msg').fadeIn('fast').delay(1500).fadeOut('fast');
       }
     });
@@ -1093,22 +1046,22 @@ $(document).on('pagebeforeshow', '#play', function(){
 /* ----------------------------------- */
 
   /*
-    HELP 2 - ODSTRANĚNÍ PÍSMEN, KTERÁ JSOU V NABÍDCE NAVÍC
+    HELP 2 - REMOVE UNNECESSARY RANDOM LETTERS FROM BOTTOM OFFER
   */
   $(document).off('click', '#help2-btn').on('click', '#help2-btn',function(e) {
     console.log("help2 clicked");
 
-    /* za jedno slovo je strženo 20 coins */
+    /* price for 1 word is 20 coins */
     var COST = 20;
     helpRemovedWord = [];
 
-    /* odečte coins za využití nápovědy a uloži */
+    /* subtract coins and save it */
     asyncStorage.getItem('coins', function(coins) {
       console.log(coins-COST);
 
       if( (coins-COST)>=0 ) {
 
-        /* přidám do helpRemovedWord */
+        /* add to helpRemovedWord */
         asyncStorage.getItem('helpRemovedWord', function(value) {
           if(value!==null) {
             helpRemovedWord = value;
@@ -1118,7 +1071,7 @@ $(document).on('pagebeforeshow', '#play', function(){
           }
           console.log(helpRemovedWord);
 
-          /* uloži do asyncStorage */
+          /* save to asyncStorage */
           asyncStorage.setItem('helpRemovedWord', helpRemovedWord, function() {
             console.log('helpRemovedWord stored');
 
@@ -1130,14 +1083,14 @@ $(document).on('pagebeforeshow', '#play', function(){
               console.log('coins stored  -20');
 
               /* zobrazí zprávu o odečtení coins */
-              $( "#pop-help2" ).popup( "close" );
+              $( "#pop-help" ).popup( "close" );
               $('.helpRemovedWord-msg').fadeIn('fast').delay(1000).fadeOut('fast');
             });
 
           });
         });
       } else {
-        /* zobrazí zprávu o nedostatku coins */
+        /* show message */
         $('.lack-coins-msg').fadeIn('fast').delay(1500).fadeOut('fast');
       }
     });
@@ -1210,7 +1163,7 @@ $(document).on( "pagebeforeshow", "#settings", function () {
 
       asyncStorage.getItem('saved-games', function(savedGames) {
         if(savedGames !== null) {
-          /* resetujeme počet levelů hry */
+          /* reset number of levels */
           savedGames[resetGame].lvl = 0;
           console.log(savedGames);
 
@@ -1224,13 +1177,13 @@ $(document).on( "pagebeforeshow", "#settings", function () {
       // level.doneWordsInLevel[resetGame] = {};
       // level.doneWordsInLevel[resetGame].doneWords = [];
 
-      /* resetování doneWordsInLevel */
+      /* reset doneWordsInLevel */
   		asyncStorage.getItem('doneWordsInLevel', function(doneWordsInLevel) {
         if(doneWordsInLevel!==null) {
           doneWordsInLevel[resetGame].doneWords = [];
           console.log(doneWordsInLevel);
 
-          /* uloži do asyncStorage */
+          /* save to asyncStorage */
           asyncStorage.setItem('doneWordsInLevel', doneWordsInLevel, function() {
             console.log('doneWordsInLevel reseted');
           });
@@ -1299,7 +1252,7 @@ $(document).on( "pageshow", "#complete-game", function () {
 
   asyncStorage.getItem('saved-games', function(savedGames) {
     if(savedGames!==null) {
-      /* resetujeme počet levelů hry */
+      /* reset number of levels */
       savedGames[gameLang].lvl = 0;
       console.log(savedGames);
 

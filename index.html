@@ -42,7 +42,7 @@
         <img src="img/logo.png" alt="logo" class="logo">
 
         <!-- installation button to install locally -->
-        <button id="install-btn">Install</button>
+        <div id="install-btn-container"></div>
 
         <nav>
             <ul class="menu" id="index-menu"></ul>
@@ -63,7 +63,6 @@
               <ul class="menu">
                 <li><a href="#play" class="playbutton" data-role="button" data-theme="a" data-game-lvl="0" data-game-lang="cs">Česky</a></li>
                 <li><a href="#play" class="playbutton" data-role="button" data-theme="a" data-game-lvl="0" data-game-lang="en">English</a></li>
-                <li><a href="#play" class="playbutton" data-role="button" data-theme="a" data-game-lvl="0" data-game-lang="de">Detush</a></li>
               </ul>
           </nav>
       </div><!-- $content -->
@@ -71,7 +70,7 @@
 
 
 
-    <!-- === PLAYING PAGE ===  -->
+    <!-- === PLAY PAGE ===  -->
 
     <div data-role="page" id="play" data-theme="a">
       <div data-role="header">
@@ -363,7 +362,7 @@
                   <div class="letter" id="l6">&nbsp;</div>
               </div>
               <div class="grid-col">
-                <a href="#pop-help1" data-rel="popup" data-position-to="window" data-transition="pop" data-shadow="true" class="help1">?</a>
+                <a href="#pop-help" data-rel="popup" data-position-to="window" data-transition="pop" data-shadow="true" class="help1">?</a>
               </div>
           </div>
           <div class="grid-row">
@@ -385,9 +384,7 @@
               <div class="grid-col">
                   <div class="letter" id="l12">&nbsp;</div>
               </div>
-              <div class="grid-col">
-                  <a href="#pop-help2" data-rel="popup" data-position-to="window" data-transition="pop" data-shadow="true" class="help2">x</a>
-              </div>
+              <div class="grid-col">&nbsp;</div>
           </div>
         </div><!-- .grid-container -->
 
@@ -405,7 +402,7 @@
         </div><!-- $popup #pop-picture -->
 
         <!-- POP UP HELP1 -->
-        <div data-role="popup" id="pop-help1" data-overlay-theme="a">
+        <div data-role="popup" id="pop-help" data-overlay-theme="a">
             <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" aria-hidden="true" class="ui-btn-left">Close</a>
             <button type="button" name="help1-btn" id="help1-btn" class="help1-btn ui-btn ui-shadow ui-corner-all">
               Show random letter
@@ -413,18 +410,13 @@
                 &minus; 20 <img src="./img/icons/coin.png" alt="coins" class="coins-img">
               </span>
             </button>
-        </div><!-- $popup #pop-help1 -->
-
-        <!-- POP UP HELP2 -->
-        <div data-role="popup" id="pop-help2" data-overlay-theme="a">
-            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" aria-hidden="true" class="ui-btn-left">Close</a>
             <button type="button" name="help2-btn" id="help2-btn" class="help2-btn ui-btn ui-shadow ui-corner-all">
               Remove letters
               <span class="cost">
                 &minus; 20 <img src="./img/icons/coin.png" alt="coins" class="coins-img">
               </span>
             </button>
-        </div><!-- $popup #pop-help2 -->
+        </div><!-- $popup #pop-help -->
 
 
       </div><!-- $content -->
@@ -479,9 +471,18 @@
         <h1>About</h1>
       </div>
       <div data-role="content">
-        <p>Vaším úkolem je poznat podle obrázku slovo a&nbsp;doplnit jej do křížovky. Kliknutím na obrázek se Vám zobrazí v&nbsp;plné velikosti.</p>
         <p>
-         Obrázky byly získány z&nbsp;veřejných zdrojů. Není-li dílo public domain, je šířeno pod jednou z&nbsp;těchto licencí.
+          Foxword - recognize the&nbsp;word according to the&nbsp;picture
+        </p>
+        <p>
+          Each picture describes one word. Your task is to&nbsp;identify the word and put it into the crossword.<br>Enjoy it!
+        </p>
+        <p>
+          TIP: Press the picture to&nbsp;see the full size.
+        </p>
+
+        <p>
+          The pictures were obtained from the public sources. If the work is&nbsp;not a&nbsp;public domain, it is distributed under one of&nbsp;these licenses.
         </p>
         <p>
          CC0<br>
@@ -500,8 +501,8 @@
          <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/">https://creativecommons.org/licenses/by-nc-nd/3.0/</a>
         </p>
         <p>
-          Autor: Radek Hiess<br>
-          Verze: 1.0.0<br>
+          Author: Radek Hiess<br>
+          Version: 1.0<br>
           GNU GPL
         </p>
       </div><!-- $content -->

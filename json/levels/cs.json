@@ -1,5 +1,5 @@
 {
-"0":{
+	"0":{
 		"wrd0": {
 	    "name":"malir",
 	    "wrd":[
@@ -58,11 +58,11 @@
 			"orient":"horizontal"
 		},
 		"wrd2":{
-			"name":"padat",
+			"name":"maska",
 			"wrd":[
-				"cs/padat.jpg",
+				"cs/maska.jpg",
 				"CC0",
-				"p","a","d","a","t"
+				"m","a","s","k","a"
 			],
 			"row":6,
 			"col":2,
@@ -348,11 +348,1405 @@
 	      "col":2,
 	      "orient":"horizontal"
 	    }
+	  },
+	"10":{
+    "wrd0": {
+      "name":"bankovky",
+      "wrd":[
+        "cs/bankovky.jpg",
+        "CC0",
+        "b","a","n","k","o","v","k", "y"
+      ],
+      "row":2,
+      "col":2,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"kral",
+      "wrd":[
+        "cs/kral.png",
+        "public domain",
+        "k","r","á","l"
+      ],
+      "row":8,
+      "col":2,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"barvy",
+      "wrd":[
+        "cs/barvy.jpg",
+        "CC0",
+        "b","a","r","v","y"
+      ],
+      "row":2,
+      "col":2,
+      "orient":"horizontal"
+    }
+  },
+  "11":{
+    "wrd0": {
+      "name":"uzavirka",
+      "wrd":[
+        "cs/uzavirka.jpg",
+        "CC0",
+        "u","z","a","v","í","r", "k", "a"
+      ],
+      "row":2,
+      "col":3,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"zuby",
+      "wrd":[
+        "cs/zuby.jpg",
+        "public domain",
+        "z","u","b","y"
+      ],
+      "row":3,
+      "col":3,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"cislo",
+      "wrd":[
+        "cs/cislo.jpg",
+        "CC0",
+        "č","í","s","l","o"
+      ],
+      "row":6,
+      "col":2,
+      "orient":"horizontal"
+    }
+  },
+  "12":{
+    "wrd0": {
+      "name":"rukavice",
+      "wrd":[
+        "cs/rukavice.jpg",
+        "CC0",
+        "r","u","k","a","v","i", "c", "e"
+      ],
+      "row":2,
+      "col":5,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"kiwi",
+      "wrd":[
+        "cs/kiwi.jpg",
+        "CC0",
+        "k","i","w","i"
+      ],
+      "row":4,
+      "col":5,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"zajic",
+      "wrd":[
+        "cs/zajic.jpg",
+        "CC0",
+        "z","a","j","í", "c"
+      ],
+      "row":8,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+  "13":{
+    "wrd0": {
+      "name":"mikroskop",
+      "wrd":[
+        "cs/mikroskop.jpg",
+        "CC0",
+        "m","i","k","r","o","s","k","o","p"
+      ],
+      "row":1,
+      "col":3,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"kour",
+      "wrd":[
+        "cs/kour.jpg",
+        "CC0",
+        "k","o","u","ř"
+      ],
+      "row":3,
+      "col":3,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"mroz",
+      "wrd":[
+        "cs/mroz.jpg",
+        "CC0",
+        "m","r","o","ž"
+      ],
+      "row":5,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+  "14":{
+    "wrd0": {
+      "name":"jeskyne",
+      "wrd":[
+        "cs/jeskyne.jpg",
+        "CC0",
+        "j","e","s","k","y","n","ě"
+      ],
+      "row":2,
+      "col":3,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"skala",
+      "wrd":[
+        "cs/skala.jpg",
+        "CC0",
+        "s","k","á","l","a"
+      ],
+      "row":4,
+      "col":3,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"hrnec",
+      "wrd":[
+        "cs/hrnec.jpg",
+        "CC0",
+        "h","r","n","e","c"
+      ],
+      "row":7,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+  "15":{
+    "wrd0": {
+      "name":"nadrazi",
+      "wrd":[
+        "cs/nadrazi.jpg",
+        "CC0",
+        "n","á","d","r","a","ž","í"
+      ],
+      "row":2,
+      "col":3,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"plac",
+      "wrd":[
+      "cs/plac.jpg",
+        "CC0",
+        "p","l","á","č"
+      ],
+      "row":3,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"zeny",
+      "wrd":[
+        "cs/zeny.jpg",
+        "CC0",
+        "ž","e","n","y"
+      ],
+      "row":7,
+      "col":3,
+      "orient":"horizontal"
+    }
+  },
+	"16":{
+	  "wrd0": {
+	    "name":"poslech",
+	    "wrd":[
+	    "cs/poslech.jpg",
+	      "CC0",
+	      "p","o","s","l","e","c","h"
+	    ],
+	    "row":2,
+	    "col":4,
+	      "orient":"vertical"
+	  },
+	  "wrd1": {
+	    "name":"vlna",
+	    "wrd":[
+	      "cs/vlna.jpg",
+	      "CC0",
+	      "v","l","n","a"
+	    ],
+	    "row":5,
+	    "col":3,
+	    "orient":"horizontal"
+	  },
+	  "wrd2": {
+	    "name":"mince",
+	    "wrd":[
+	      "cs/mince.jpg",
+	      "CC0",
+	      "m","i","n","c","e"
+	    ],
+	    "row":7,
+	    "col":1,
+	    "orient":"horizontal"
 	  }
-
-
-
-
-
-
+	},
+	"17":{
+    "wrd0": {
+      "name":"velbloud",
+      "wrd":[
+        "cs/velbloud.jpg",
+        "freeimages.com",
+        "v","e","l","b","l","o","u","d"
+      ],
+      "row":1,
+      "col":2,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"blesk",
+      "wrd":[
+        "cs/blesk.jpg",
+        	"public domain",
+        "b","l","e","s","k"
+      ],
+      "row":4,
+      "col":2,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"lod",
+      "wrd":[
+        "cs/lod.jpg",
+        "public domain",
+        "l","o","ď"
+      ],
+      "row":6,
+      "col":1,
+      "orient":"horizontal"
+    }
+	},
+	"18":{
+	  "wrd0": {
+	    "name":"papriky",
+	    "wrd":[
+	      "cs/papriky.jpg",
+	      "CC0",
+	      "p","a","p","r","i","k","y"
+	    ],
+	    "row":2,
+	    "col":4,
+	      "orient":"vertical"
+	  },
+	  "wrd1": {
+	    "name":"sponka",
+	    "wrd":[
+	      "cs/sponka.jpg",
+	      "CC0",
+	      "s","p","o","n","k","a"
+	    ],
+	    "row":4,
+	    "col":3,
+	    "orient":"horizontal"
+	  },
+	  "wrd2": {
+	    "name":"hory",
+	    "wrd":[
+	      "cs/hory.jpg",
+	      "CC0",
+	      "h","o","r","y"
+	    ],
+	    "row":8,
+	    "col":1,
+	    "orient":"horizontal"
+	  }
+	},
+	"19":{
+    "wrd0": {
+      "name":"sroubovak",
+      "wrd":[
+        "cs/sroubovak.jpg",
+        "CC0",
+        "š","r","o","u","b","o","v","á","k"
+      ],
+      "row":1,
+      "col":2,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"sest",
+      "wrd":[
+        "cs/sest.jpg",
+        "CC0",
+        "š","e","s","t"
+      ],
+      "row":1,
+      "col":2,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"ohen",
+      "wrd":[
+        "cs/ohen.jpg",
+        "CC0",
+        "o","h","e","ň"
+      ],
+      "row":6,
+      "col":2,
+      "orient":"horizontal"
+    }
+	},
+	"20":{
+    "wrd0": {
+      "name":"limetka",
+      "wrd":[
+        "cs/limetka.jpg",
+        "freeimages.com",
+        "l","i","m","e","t","k","a"
+      ],
+      "row":1,
+      "col":3,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"metr",
+      "wrd":[
+        "cs/metr.jpg",
+        "freeimages.com",
+        "m","e","t","r"
+      ],
+      "row":5,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"radar",
+      "wrd":[
+        "cs/radar.jpg",
+        "CC0",
+        "r","a","d","a","r"
+      ],
+      "row":7,
+      "col":2,
+      "orient":"horizontal"
+    }
+	},
+	"21":{
+    "wrd0": {
+      "name":"testoviny",
+      "wrd":[
+        "cs/testoviny.jpg",
+        "CC0",
+        "t","ě","s","t","o","v","i","n","y"
+      ],
+      "row":1,
+      "col":3,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"vysoky",
+      "wrd":[
+        "cs/vysoky.jpg",
+        "public domain",
+        "v","y","s","o","k","ý"
+      ],
+      "row":3,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"kanada",
+      "wrd":[
+        "cs/kanada.jpg",
+        "CC0",
+        "k","a","n","a","d","a"
+      ],
+      "row":8,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+	"22":{
+    "wrd0": {
+      "name":"pastelky",
+      "wrd":[
+        "cs/pastelky.jpg",
+        "CC0",
+        "p","a","s","t","e","l","k","y"
+      ],
+      "row":1,
+      "col":5,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"sopka",
+      "wrd":[
+        "cs/sopka.jpg",
+        "CC0",
+        "s","o","p","k","a"
+      ],
+      "row":2,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"hroby",
+      "wrd":[
+        "cs/hroby.jpg",
+        "CC0",
+        "h","r","o","b","y"
+      ],
+      "row":8,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+	"23":{
+    "wrd0": {
+      "name":"hygiena",
+      "wrd":[
+        "cs/hygiena.jpg",
+        "CC0",
+        "h","y","g","i","e","n","a"
+      ],
+      "row":2,
+      "col":4,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"cip",
+      "wrd":[
+        "cs/cip.jpg",
+        "CC0",
+        "č","i","p"
+      ],
+      "row":5,
+      "col":3,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"odraz",
+      "wrd":[
+        "cs/odraz.jpg",
+        "CC0",
+        "o","d","r","a","z"
+      ],
+      "row":8,
+      "col":1,
+      "orient":"horizontal"
+    }
+	},
+	"24":{
+    "wrd0": {
+      "name":"ockovani",
+      "wrd":[
+        "cs/ockovani.jpg",
+        "CC0",
+        "o","č","k","o","v","á","n","í"
+      ],
+      "row":1,
+      "col":3,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"pobrezi",
+      "wrd":[
+        "cs/pobrezi.jpg",
+        "CC0",
+        "p","o","b","ř","e","ž","í"
+      ],
+      "row":4,
+      "col":2,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"zaba",
+      "wrd":[
+        "cs/zaba.jpg",
+        "freeimages.com",
+        "ž","á","b","a"
+      ],
+      "row":6,
+      "col":2,
+      "orient":"horizontal"
+    }
+  },
+	"25":{
+	    "wrd0": {
+	      "name":"dalmatin",
+	      "wrd":[
+	        "cs/dalmatin.jpg",
+	        "CC0",
+	        "d","a","l","m","a","t","i","n"
+	      ],
+	      "row":1,
+	      "col":2,
+	        "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"basa",
+	      "wrd":[
+	        "cs/basa.jpg",
+	        "CC0",
+	        "b","a","s","a"
+	      ],
+	      "row":2,
+	      "col":1,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"mars",
+	      "wrd":[
+	        "cs/mars.jpg",
+	        "CC0",
+	        "m","a","r","s"
+	      ],
+	      "row":4,
+	      "col":2,
+	      "orient":"horizontal"
+	    }
+  },
+	"26":{
+	    "wrd0": {
+	      "name":"nastenka",
+	      "wrd":[
+	        "cs/nastenka.jpg",
+	        "CC0",
+	        "n","á","s","t","ě","n","k","a"
+	      ],
+	      "row":1,
+	      "col":4,
+	        "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"majak",
+	      "wrd":[
+	        "cs/majak.jpg",
+	        "CC0",
+	        "m","a","j","á","k"
+	      ],
+	      "row":2,
+	      "col":1,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"matka",
+	      "wrd":[
+	        "cs/matka.jpg",
+	        "CC0",
+	        "m","a","t","k","a"
+	      ],
+	      "row":8,
+	      "col":1,
+	      "orient":"horizontal"
+	    }
+	  },
+	"27":{
+    "wrd0": {
+      "name":"galaxie",
+      "wrd":[
+        "cs/galaxie.jpg",
+        "CC0",
+        "g","a","l","a","x","i","e"
+      ],
+      "row":2,
+      "col":3,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"chata",
+      "wrd":[
+        "cs/chata.jpg",
+        "CC0",
+        "c","h","a","t","a"
+      ],
+      "row":3,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"lama",
+      "wrd":[
+        "cs/lama.jpg",
+        "CC0",
+        "l","a","m","a"
+      ],
+      "row":5,
+      "col":2,
+      "orient":"horizontal"
+    }
+  },
+	"28":{
+    "wrd0": {
+      "name":"cervena",
+      "wrd":[
+        "cs/cervena.jpg",
+        "CC0",
+        "č","e","r","v","e","n","á"
+      ],
+      "row":2,
+      "col":3,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"kocar",
+      "wrd":[
+        "cs/kocar.jpg",
+        "CC0",
+        "k","o","č","á","r"
+      ],
+      "row":2,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"vino",
+      "wrd":[
+        "cs/vino.jpg",
+        "CC0",
+        "v","í","n","o"
+      ],
+      "row":5,
+      "col":3,
+      "orient":"horizontal"
+    }
+	},
+	"29":{
+    "wrd0": {
+      "name":"turista",
+      "wrd":[
+      "cs/turista.jpg",
+        "CC0",
+        "t","u","r","i","s","t","a"
+      ],
+      "row":2,
+      "col":5,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"bryle",
+      "wrd":[
+        "cs/bryle.jpg",
+        "CC0",
+        "b","r","ý","l","e"
+      ],
+      "row":4,
+      "col":4,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"kojot",
+      "wrd":[
+        "cs/kojot.jpg",
+        "CC0",
+        "k","o","j","o","t"
+      ],
+      "row":7,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+	"30":{
+    "wrd0": {
+      "name":"schodiste",
+      "wrd":[
+        "cs/schodiste.jpg",
+        "CC BY-SA 3.0 Lionel Allorge",
+        "s","c","h","o","d","i","š","t","ě"
+      ],
+      "row":1,
+      "col":2,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"salek",
+      "wrd":[
+        "cs/salek.jpg",
+        "public domain",
+        "š","á","l","e","k"
+      ],
+      "row":7,
+      "col":2,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"polovina",
+      "wrd":[
+        "cs/polovina.jpg",
+        "CC0",
+        "p","o","l","o","v","i","n","a"
+      ],
+      "row":4,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+	"31":{
+    "wrd0": {
+      "name":"varhany",
+      "wrd":[
+        "cs/varhany.jpg",
+        "CC0",
+        "v","a","r","h","a","n","y"
+      ],
+      "row":2,
+      "col":4,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"jazyk",
+      "wrd":[
+        "cs/jazyk.jpg",
+        "public domain",
+        "j","a","z","y","k"
+      ],
+      "row":8,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"trh",
+      "wrd":[
+        "cs/trh.jpg",
+        "CC0",
+        "t","r","h"
+      ],
+      "row":5,
+      "col":2,
+      "orient":"horizontal"
+    }
+  },
+	"32":{
+	    "wrd0": {
+	      "name":"uzamceny",
+	      "wrd":[
+	        "cs/uzamceny.jpg",
+	        "CC0",
+	        "u","z","a","m","č","e","n","ý"
+	      ],
+	      "row":1,
+	      "col":3,
+	        "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"pizza",
+	      "wrd":[
+	        "cs/pizza.jpg",
+	        "CC0",
+	        "p","i","z","z","a"
+	      ],
+	      "row":2,
+	      "col":1,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"dýně",
+				"wrd":[
+	        "cs/dyne.jpg",
+	        "CC0",
+	        "d","ý","n","ě"
+	      ],
+	      "row":8,
+	      "col":2,
+	      "orient":"horizontal"
+	    }
+	},
+	"33":{
+    "wrd0": {
+      "name":"aligator",
+      "wrd":[
+        "cs/aligator.jpg",
+        "CC0",
+        "a","l","i","g","á","t","o","r"
+      ],
+      "row":2,
+      "col":2,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"stopa",
+      "wrd":[
+        "cs/stopa.jpg",
+        "CC0",
+        "s","t","o","p","a"
+      ],
+      "row":7,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"platky",
+      "wrd":[
+        "cs/platky.jpg",
+        "CC0",
+        "p","l","á","t","k","y"
+      ],
+      "row":3,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+	"34":{
+    "wrd0": {
+      "name":"brokolice",
+      "wrd":[
+        "cs/brokolice.jpg",
+        "CC0",
+        "b","r","o","k","o","l","i","c","e"
+      ],
+      "row":1,
+      "col":5,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"zrnko",
+      "wrd":[
+        "cs/zrnko.jpg",
+        "CC0",
+        "z","r","n","k","o"
+      ],
+      "row":4,
+      "col":2,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"rybolov",
+      "wrd":[
+        "cs/rybolov.jpg",
+        "CC0",
+        "r","y","b","o","l","o","v"
+      ],
+      "row":6,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+	"35":{
+	    "wrd0": {
+	      "name":"satelit",
+	      "wrd":[
+	        "cs/satelit.jpg",
+	        "CC0",
+	        "s","a","t","e","l","i","t"
+	      ],
+	      "row":1,
+	      "col":3,
+	        "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"prsten",
+	      "wrd":[
+	        "cs/prsten.jpg",
+	        "CC0",
+	        "p","r","s","t","e","n"
+	      ],
+	      "row":1,
+	      "col":1,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"orechy",
+	      "wrd":[
+	        "cs/orechy.jpg",
+	        "CC0",
+	        "o","ř","e","c","h","y"
+	      ],
+	      "row":4,
+	      "col":1,
+	      "orient":"horizontal"
+	    }
+	  },
+	"36":{
+	    "wrd0": {
+	      "name":"susenka",
+	      "wrd":[
+	        "cs/susenka.jpg",
+	        "CC0",
+	        "s","u","š","e","n","k","a"
+	      ],
+	      "row":2,
+	      "col":4,
+	        "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"pecka",
+	      "wrd":[
+	        "cs/pecka.jpg",
+	        "CC0",
+	        "p","e","c","k","a"
+	      ],
+	      "row":7,
+	      "col":1,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"sachy",
+	      "wrd":[
+	        "cs/sachy.jpg",
+	        "CC0",
+	        "š","a","c","h","y"
+	      ],
+	      "row":4,
+	      "col":4,
+	      "orient":"horizontal"
+	    }
+	  },
+	"37":{
+	    "wrd0": {
+	      "name":"cviceni",
+	      "wrd":[
+	        "cs/cviceni.jpg",
+	        "CC0",
+	        "c","v","i","č","e","n","í"
+	      ],
+	      "row":2,
+	      "col":5,
+	        "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"cinka",
+	      "wrd":[
+	        "cs/cinka.jpg",
+	        "CC0",
+	        "č","i","n","k","a"
+	      ],
+	      "row":4,
+	      "col":4,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"stari",
+	      "wrd":[
+	        "cs/stari.jpg",
+	        "CC0",
+	        "s","t","á","ř","í"
+	      ],
+	      "row":8,
+	      "col":1,
+	      "orient":"horizontal"
+	    }
+	  },
+	"38":{
+	    "wrd0": {
+	      "name":"rozhovor",
+	      "wrd":[
+	        "cs/rozhovor.jpg",
+	        "CC0",
+	        "r","o","z","h","o","v","o","r"
+	      ],
+	      "row":2,
+	      "col":3,
+	      "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"kobra",
+	      "wrd":[
+	        "cs/kobra.jpg",
+	        "public domain",
+	        "k","o","b","r","a"
+	      ],
+	      "row":3,
+	      "col":2,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"vcela",
+	      "wrd":[
+	        "cs/vcela.jpg",
+	        "CC0",
+	        "v","c","e","l","a"
+	      ],
+	      "row":7,
+	      "col":3,
+	      "orient":"horizontal"
+	    }
+	  },
+	"39":{
+	    "wrd0": {
+	      "name":"teplota",
+	      "wrd":[
+	        "cs/teplota.jpg",
+	        "CC0",
+	        "t","e","p","l","o","t","a"
+	      ],
+	      "row":8,
+	      "col":2,
+	      "orient":"horizontal"
+	    },
+	    "wrd1": {
+	      "name":"motorka",
+	      "wrd":[
+	        "cs/motorka.jpg",
+	        "CC0",
+	        "m","o","t","o","r","k","a"
+	      ],
+	      "row":4,
+	      "col":1,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"rozbít",
+	      "wrd":[
+	        "cs/rozbít.jpg",
+	        "CC BY 3.0 edwardthewizrd",
+	        "r","o","z","b","í","t"
+	      ],
+	      "row":3,
+	      "col":2,
+	      "orient":"vertical"
+	    }
+	  },
+	"40":{
+	    "wrd0": {
+	      "name":"turbina",
+	      "wrd":[
+	        "cs/turbina.jpg",
+	        "freeimages.com",
+	        "t","u","r","b","í","n","a"
+	      ],
+	      "row":2,
+	      "col":4,
+	      "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"letadla",
+	      "wrd":[
+	        "cs/letadla.jpg",
+	        "CC0",
+	        "l","e","t","a","d","l","a"
+	      ],
+	      "row":8,
+	      "col":1,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"duha",
+	      "wrd":[
+	        "cs/duha.jpg",
+	        "CC0",
+	        "d","u","h","a"
+	      ],
+	      "row":3,
+	      "col":3,
+	      "orient":"horizontal"
+	    }
+	  },
+	"41":{
+	    "wrd0": {
+	      "name":"nalesteny",
+	      "wrd":[
+	        "cs/nalesteny.jpg",
+	        "CC0",
+	        "n","a","l","e","š","t","ě","n","ý"
+	      ],
+	      "row":1,
+	      "col":4,
+	      "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"andel",
+	      "wrd":[
+	        "cs/andel.jpg",
+	        "CC0",
+	        "a","n","d","ě","l"
+	      ],
+	      "row":7,
+	      "col":1,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"baletka",
+	      "wrd":[
+	        "cs/baletka.jpg",
+	        "CC0",
+	        "b","a","l","e","t","k","a"
+	      ],
+	      "row":4,
+	      "col":1,
+	      "orient":"horizontal"
+	    }
+	  },
+	"42":{
+	    "wrd0": {
+	      "name":"hurikan",
+	      "wrd":[
+	        "cs/hurikan.jpg",
+	        "CC0",
+	        "h","u","r","i","k","á","n"
+	      ],
+	      "row":2,
+	      "col":5,
+	      "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"krabice",
+	      "wrd":[
+	        "cs/krabice.jpg",
+	        "CC0",
+	        "k","r","a","b","i","c","e"
+	      ],
+	      "row":5,
+	      "col":1,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"srub",
+	      "wrd":[
+	        "cs/srub.jpg",
+	        "CC0",
+	        "s","r","u","b"
+	      ],
+	      "row":3,
+	      "col":3,
+	      "orient":"horizontal"
+	    }
+	  },
+	"43":{
+	    "wrd0": {
+	      "name":"podzim",
+	      "wrd":[
+	        "cs/podzim.jpg",
+	        "CC0",
+	        "p","o","d","z","i","m"
+	      ],
+	      "row":5,
+	      "col":1,
+	        "orient":"horizontal"
+	    },
+	    "wrd1": {
+	      "name":"lavicka",
+	      "wrd":[
+	        "cs/lavicka.jpg",
+	        "CC0",
+	        "l","a","v","i","č","k","a"
+	      ],
+	      "row":2,
+	      "col":5,
+	      "orient":"vertical"
+	    },
+	    "wrd2": {
+	      "name":"housle",
+	      "wrd":[
+	        "cs/housle.jpg",
+	        "freeimages.com",
+	        "h","o","u","s","l","e"
+	      ],
+	      "row":2,
+	      "col":1,
+	      "orient":"horizontal"
+	    }
+	  },
+	"44":{
+	    "wrd0": {
+	      "name":"ozubeny",
+	      "wrd":[
+	        "cs/ozubeny.jpg",
+	        "CC0",
+	        "o","z","u","b","e","n","ý"
+	      ],
+	      "row":2,
+	      "col":4,
+	        "orient":"vertical"
+	    },
+	    "wrd1": {
+	      "name":"hejno",
+	      "wrd":[
+	        "cs/hejno.jpg",
+	        "CC0",
+	        "h","e","j","n","o"
+	      ],
+	      "row":7,
+	      "col":1,
+	      "orient":"horizontal"
+	    },
+	    "wrd2": {
+	      "name":"jezero",
+	      "wrd":[
+	        "cs/jezero.jpg",
+	        "CC0",
+	        "j","e","z","e","r","o"
+	      ],
+	      "row":4,
+	      "col":2,
+	      "orient":"vertical"
+	    }
+	  },
+		"45":{
+		    "wrd0": {
+		      "name":"slovo",
+		      "wrd":[
+		        "slovo.jpg",
+		        "CC0",
+		        "m","e","d","v","ě","d"
+		      ],
+		      "row":2,
+		      "col":3,
+		        "orient":"vertical"
+		    },
+		    "wrd1": {
+		      "name":"slovo",
+		      "wrd":[
+		        "slovo.jpg",
+		        "CC0",
+		        "d","ě","t","i"
+		      ],
+		      "row":3,
+		      "col":2,
+		      "orient":"horizontal"
+		    },
+		    "wrd2": {
+		      "name":"slovo",
+		      "wrd":[
+		        "slovo.jpg",
+		        "CC0",
+		        "d","ř","e","v","o"
+		      ],
+		      "row":6,
+		      "col":2,
+		      "orient":"horizontal"
+		    }
+		  },
+			"46":{
+			    "wrd0": {
+			      "name":"ohnostroj",
+			      "wrd":[
+			        "cs/ohnostroj.jpg",
+			        "CC0",
+			        "o","h","ň","o","s","t","r","o","j"
+			      ],
+			      "row":1,
+			      "col":2,
+			        "orient":"vertical"
+			    },
+			    "wrd1": {
+			      "name":"orel",
+			      "wrd":[
+			        "cs/orel.jpg",
+			        "CC0",
+			        "o","r","e","l"
+			      ],
+			      "row":4,
+			      "col":2,
+			      "orient":"horizontal"
+			    },
+			    "wrd2": {
+			      "name":"raketa",
+			      "wrd":[
+			        "cs/raketa.jpg",
+			        "CC0",
+			        "r","a","k","e","t","a"
+			      ],
+			      "row":7,
+			      "col":2,
+			      "orient":"horizontal"
+			    }
+			  },
+		"47":{
+			"wrd0": {
+				"name":"ockovani",
+				"wrd":[
+					"cs/ockovani.jpg",
+					"CC0",
+					"o","č","k","o","v","á","n","í"
+				],
+				"row":1,
+				"col":3,
+					"orient":"vertical"
+			},
+			"wrd1": {
+				"name":"pobrezi",
+				"wrd":[
+					"cs/pobrezi.jpg",
+					"CC0",
+					"p","o","b","ř","e","ž","í"
+				],
+				"row":4,
+				"col":2,
+				"orient":"horizontal"
+			},
+			"wrd2": {
+				"name":"zaba",
+				"wrd":[
+					"cs/zaba.jpg",
+					"freeimages.com",
+					"ž","á","b","a"
+				],
+				"row":6,
+				"col":2,
+				"orient":"horizontal"
+			}
+		},
+		"48":{
+			"wrd0": {
+				"name":"brokolice",
+				"wrd":[
+					"cs/brokolice.jpg",
+					"CC0",
+					"b","r","o","k","o","l","i","c","e"
+				],
+				"row":1,
+				"col":5,
+					"orient":"vertical"
+			},
+			"wrd1": {
+				"name":"zrnko",
+				"wrd":[
+					"cs/zrnko.jpg",
+					"CC0",
+					"z","r","n","k","o"
+				],
+				"row":4,
+				"col":2,
+				"orient":"horizontal"
+			},
+			"wrd2": {
+				"name":"rybolov",
+				"wrd":[
+					"cs/rybolov.jpg",
+					"CC0",
+					"r","y","b","o","l","o","v"
+				],
+				"row":6,
+				"col":1,
+				"orient":"horizontal"
+			}
+		},
+	"49":{
+		"wrd0": {
+			"name":"limetka",
+			"wrd":[
+				"cs/limetka.jpg",
+				"freeimages.com",
+				"l","i","m","e","t","k","a"
+			],
+			"row":1,
+			"col":3,
+				"orient":"vertical"
+		},
+		"wrd1": {
+			"name":"metr",
+			"wrd":[
+				"cs/metr.jpg",
+				"freeimages.com",
+				"m","e","t","r"
+			],
+			"row":5,
+			"col":1,
+			"orient":"horizontal"
+		},
+		"wrd2": {
+			"name":"radar",
+			"wrd":[
+				"cs/radar.jpg",
+				"CC0",
+				"r","a","d","a","r"
+			],
+			"row":7,
+			"col":2,
+			"orient":"horizontal"
+		}
+	}
 }

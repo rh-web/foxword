@@ -1,3 +1,4 @@
+// <button id="install-btn">Install</button>
 /* global alert, console */
 "use strict";
 // Install app
@@ -6,27 +7,29 @@ if (navigator.mozApps) {
     checkIfInstalled.onsuccess = function () {
         if (checkIfInstalled.result) {
             // Already installed
-            var installationInstructions = document.querySelector("#install-btn");
-            if (installationInstructions) {
-                installationInstructions.style.display = "none";
-            }
-        }
-        else {
-            var install = document.querySelector("#install-btn"),
-                manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/manifest.webapp";
-            // install.className = "show-install";
-            install.onclick = function () {
+            console.log("Installed");
+        } else {
+          if (navigator.userAgent.indexOf('Firefox') > -1 && navigator.userAgent.indexOf("Mobile") > -1) {
+            // If is Firefox OS
+            var installBtn = document.createElement("button");
+            var installBtnContainer = document.querySelector("#install-btn-container");
+            installBtn.id = "install-btn";
+            installBtn.className = "ui-btn";
+            installBtn.innerHTML = "Install"
+            installBtnContainer.appendChild(installBtn);
+            var manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/manifest.webapp";
+            installBtn.onclick = function () {
                 var installApp = navigator.mozApps.install(manifestURL);
                 installApp.onsuccess = function() {
-                    install.style.display = "none";
+                    installBtn.style.display = "none";
                 };
                 installApp.onerror = function() {
                     alert("Install failed\n\n:" + installApp.error.name);
                 };
             };
+          }
         }
     };
-}
-else {
-    console.log("Open Web Apps not supported");
+} else {
+  console.log("Open Web Apps not supported");
 }

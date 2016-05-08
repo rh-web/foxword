@@ -1,11 +1,11 @@
 {
-"0":{
+  "0":{
 		"wrd0": {
-	    "name":"malir",
+	    "name":"painter",
 	    "wrd":[
 				"cs/malir.jpg",
 				"CC0",
-				"m","a","l","í","ř"
+				"p","a","i","n","t","e","r"
 			],
 			"row":2,
 			"col":3,
@@ -23,166 +23,166 @@
 			"orient":"horizontal"
 	  },
 		"wrd2": {
-	    "name":"bricho",
+	    "name":"belly",
 	    "wrd":[
 	      "cs/bricho.jpg",
 				"public domain",
-				"b","ř","i","c","h","o"
+				"b","e","l","l","y"
 			],
-			"row":6,
+			"row":7,
 			"col":2,
 			"orient":"horizontal"
 	  }
 	},
 	"1":{
 		"wrd0":{
-			"name":"kocka",
+			"name":"cat",
 			"wrd":[
 				"cs/kocka.jpg",
 				"public domain",
-				"k","o","č","k","a"
+				"c","a","t"
 			],
 			"row":2,
-			"col":3,
-			"orient":"vertical"
+			"col":2,
+			"orient":"horizontal"
 		},
 		"wrd1":{
-			"name":"oko",
+			"name":"eye",
 			"wrd":[
 				"cs/oko.jpg",
 				"public domain",
-				"o","k","o"
+				"e","y","e"
 			],
-			"row":3,
+			"row":5,
 			"col":3,
 			"orient":"horizontal"
 		},
 		"wrd2":{
-			"name":"padat",
+			"name":"angel",
 			"wrd":[
-				"cs/padat.jpg",
+				"cs/andel.jpg",
 				"CC0",
-				"p","a","d","a","t"
+				"a","n","g","e","l"
 			],
-			"row":6,
-			"col":2,
-			"orient":"horizontal"
+			"row":2,
+			"col":3,
+			"orient":"vertical"
 		}
 	},
 	"2":{
 		"wrd0":{
-			"name":"banan",
+			"name":"banana",
 			"wrd":[
 				"cs/banan.jpg",
 				"CC0",
-				"b","a","n","á","n"
+				"b","a","n","a","n","a"
 			],
-			"row":2,
-			"col":3,
+			"row":3,
+			"col":4,
 			"orient":"vertical"
 		},
 		"wrd1":{
-			"name":"mnich",
+			"name":"friar",
 			"wrd":[
 				"cs/mnich.jpg",
 				"CC BY-NC-ND 3.0 tyrannus",
-				"m","n","i","c","h"
+				"f","r","i","a","r"
 			],
 			"row":6,
-			"col":2,
+			"col":1,
 			"orient":"horizontal"
 		},
 		"wrd2":{
-			"name":"drak",
+			"name":"dragon",
 			"wrd":[
 				"cs/drak.jpg",
 				"public domain",
-				"d","r","a","k"
+				"d","r","a","g","o","n"
 			],
-			"row":3,
-			"col":1,
+			"row":4,
+			"col":2,
 			"orient":"horizontal"
 		}
 	},
 	"3":{
 			"wrd0": {
-		    "name":"medved",
+		    "name":"bear",
 		    "wrd":[
 					"cs/medved.jpg",
 					"CC0",
-					"m","e","d","v","ě","d"
+					"b","e","a","r"
 				],
-				"row":2,
+				"row":7,
 				"col":3,
-					"orient":"vertical"
+					"orient":"horizontal"
 		  },
 			"wrd1": {
-		    "name":"deti",
+		    "name":"children",
 		    "wrd":[
 		      "cs/deti.jpg",
 		      "CC0",
-		      "d","ě","t","i"
+		      "c","h","i","l","d","r","e","n"
 				],
-				"row":6,
-				"col":2,
-				"orient":"horizontal"
+				"row":1,
+				"col":4,
+				"orient":"vertical"
 		  },
 			"wrd2": {
-		    "name":"drevo",
+		    "name":"cash",
 		    "wrd":[
-		      "cs/drevo.jpg",
+		      "cs/bankovky.jpg",
 					"CC0",
-					"d","ř","e","v","o"
+					"c","a","s","h"
 				],
-				"row":3,
+				"row":2,
 				"col":1,
 				"orient":"horizontal"
 		  }
 		},
 	"4":{
 	    "wrd0": {
-	      "name":"jahody",
+	      "name":"raspberry",
 	      "wrd":[
-	        "cs/jahody.jpg",
+	        "en/raspberry-cc0.jpg",
 	        "CC0",
-	        "j","a","h","o","d","y"
+	        "r","a","s","p","b","e","r","r","y"
 	      ],
-	      "row":2,
-	      "col":4,
+	      "row":1,
+	      "col":5,
 	        "orient":"vertical"
 	    },
 	    "wrd1": {
-	      "name":"holub",
+	      "name":"pigeon",
 	      "wrd":[
 	        "cs/holub.jpg",
 	        "CC0",
-	        "h","o","l","u","b"
+	        "p","i","g","e","o","n"
 	      ],
-	      "row":5,
-	      "col":3,
+	      "row":6,
+	      "col":2,
 	      "orient":"horizontal"
 	    },
 	    "wrd2": {
-	      "name":"voda",
+	      "name":"water",
 	      "wrd":[
 	        "cs/voda.jpg",
 	        "public domain",
-	        "v","o","d","a"
+	        "w","a","t","e","r"
 	      ],
-	      "row":3,
+	      "row":1,
 	      "col":1,
 	      "orient":"horizontal"
 	    }
 	  },
 	"5":{
 	    "wrd0": {
-	      "name":"spagety",
+	      "name":"spaghetti",
 	      "wrd":[
 	        "cs/spagety.jpg",
 	        "CC BY 2.0 TheCulinaryGeek",
-	        "š","p","a","g","e","t","y"
+	        "s","p","a","g","h","e","t","t","i"
 	      ],
-	      "row":2,
+	      "row":1,
 	      "col":3,
 	        "orient":"vertical"
 	    },
@@ -193,166 +193,370 @@
 	        "CC0",
 	        "t","a","n","k"
 	      ],
-	      "row":7,
-	      "col":3,
+	      "row":3,
+	      "col":2,
 	      "orient":"horizontal"
 	    },
 	    "wrd2": {
-	      "name":"kapka",
+	      "name":"raindrop",
 	      "wrd":[
 	        "cs/kapka.jpg",
 	        "CC0",
-	        "k","a","p","k","a"
+	        "r","a","i","n","d","r","o","p"
 	      ],
-	      "row":3,
+	      "row":9,
 	      "col":1,
 	      "orient":"horizontal"
 	    }
 	  },
 	"6":{
 	    "wrd0": {
-	      "name":"vodopad",
+	      "name":"waterfall",
 	      "wrd":[
 	        "cs/vodopad.jpg",
 	        "CC0",
-	        "v","o","d","o","p","á","d"
+	        "w","a","t","e","r","f","a","l","l"
 	      ],
-	      "row":2,
+	      "row":1,
 	      "col":3,
 	        "orient":"vertical"
 	    },
 	    "wrd1": {
-	      "name":"box",
+	      "name":"snake",
 	      "wrd":[
-	        "cs/box.jpg",
-	        "CC0",
-	        "b","o","x"
+	        "en/snake.jpg",
+	        "public domain",
+	        "s","n","a","k","e"
 	      ],
-	      "row":3,
-	      "col":2,
+	      "row":2,
+	      "col":1,
 	      "orient":"horizontal"
 	    },
 	    "wrd2": {
-	      "name":"darek",
+	      "name":"gift",
 	      "wrd":[
 	        "cs/darek.jpg",
 	        "CC0",
-	        "d","á","r","e","k"
+	        "g","i","f","t"
 	      ],
-	      "row":7,
-	      "col":2,
+	      "row":6,
+	      "col":1,
 	      "orient":"horizontal"
 	    }
 	  },
 	"7":{
 	    "wrd0": {
-	      "name":"sprcha",
+	      "name":"shower",
 	      "wrd":[
 	        "cs/sprcha.jpg",
 	        "CC0",
-	        "s","p","r","c","h","a"
+	        "s","h","o","w","e","r"
 	      ],
-	      "row":5,
-	      "col":1,
-	        "orient":"horizontal"
+	      "row":1,
+	      "col":5,
+	        "orient":"vertical"
 	    },
 	    "wrd1": {
-	      "name":"karty",
+	      "name":"cards",
 	      "wrd":[
 	        "cs/karty.jpg",
 	        "CC BY 3.0 RamosBurrito",
-	        "k","a","r","t","y"
+	        "c","a","r","d","s"
 	      ],
-	      "row":3,
-	      "col":3,
+	      "row":5,
+	      "col":2,
 	      "orient":"vertical"
 	    },
 	    "wrd2": {
-	      "name":"kino",
+	      "name":"cinema",
 	      "wrd":[
 	        "cs/kino.jpg",
 	        "freeimages.com",
-	        "k","i","n","o"
+	        "c","i","n","e","m","a"
 	      ],
-	      "row":3,
-	      "col":3,
+	      "row":5,
+	      "col":2,
 	      "orient":"horizontal"
 	    }
 	  },
 	"8":{
 	    "wrd0": {
-	      "name":"motyl",
+	      "name":"butterfly",
 	      "wrd":[
 	        "cs/motyl.jpg",
 	        "CC0",
-	        "m","o","t","ý","l"
+	        "b","u","t","t","e","r","f","l","y"
 	      ],
-	      "row":3,
-	      "col":2,
+	      "row":1,
+	      "col":3,
 	        "orient":"vertical"
 	    },
 	    "wrd1": {
-	      "name":"syr",
+	      "name":"cheese",
 	      "wrd":[
 	        "cs/syr.jpg",
 	        "CC0",
-	        "s","ý","r"
+	        "c","h","e","e","s","e"
 	      ],
-	      "row":6,
+	      "row":5,
 	      "col":1,
 	      "orient":"horizontal"
 	    },
 	    "wrd2": {
-	      "name":"mraky",
+	      "name":"clouds",
 	      "wrd":[
 	        "cs/mraky.jpg",
 	        "CC0",
-	        "m","r","a","k","y"
+	        "c","l","o","u","d","s"
 	      ],
-	      "row":3,
+	      "row":8,
 	      "col":2,
 	      "orient":"horizontal"
 	    }
 	  },
 	"9":{
 	    "wrd0": {
-	      "name":"ohnostroj",
+	      "name":"fireworks",
 	      "wrd":[
 	        "cs/ohnostroj.jpg",
 	        "CC0",
-	        "o","h","ň","o","s","t","r","o","j"
+	        "f","i","r","e","w","o","r","k","s"
 	      ],
 	      "row":1,
 	      "col":2,
 	        "orient":"vertical"
 	    },
 	    "wrd1": {
-	      "name":"orel",
+	      "name":"eagle",
 	      "wrd":[
 	        "cs/orel.jpg",
 	        "CC0",
-	        "o","r","e","l"
+	        "e","a","g","l","e"
 	      ],
 	      "row":4,
 	      "col":2,
 	      "orient":"horizontal"
 	    },
 	    "wrd2": {
-	      "name":"raketa",
+				"name":"king",
 	      "wrd":[
-	        "cs/raketa.jpg",
-	        "CC0",
-	        "r","a","k","e","t","a"
+	        "cs/kral.jpg",
+	        "public domain",
+	        "k","i","n","g"
 	      ],
-	      "row":7,
-	      "col":2,
+	      "row":2,
+	      "col":1,
 	      "orient":"horizontal"
 	    }
-	  }
-
-
-
-
-
-
+	  },
+	"10":{
+    "wrd0": {
+			"name":"rocket",
+			"wrd":[
+				"cs/raketa.jpg",
+				"CC0",
+				"r","o","c","k","e","t"
+			],
+      "row":7,
+      "col":2,
+        "orient":"horizontal"
+    },
+    "wrd1": {
+      "name":"wood",
+      "wrd":[
+        "cs/drevo.jpg",
+        "CC0",
+        "w","o","o","d"
+      ],
+      "row":3,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"colours",
+      "wrd":[
+        "cs/barvy.jpg",
+        "CC0",
+        "c","o","l","o","u","r","s"
+      ],
+      "row":2,
+      "col":2,
+      "orient":"vertical"
+    }
+  },
+  "11":{
+    "wrd0": {
+      "name":"closure",
+      "wrd":[
+        "cs/uzavirka.jpg",
+        "CC0",
+        "c","l","o","s","u","r", "e"
+      ],
+      "row":2,
+      "col":2,
+      "orient":"vertical"
+    },
+    "wrd1": {
+			"name":"gloves",
+      "wrd":[
+        "cs/rukavice.jpg",
+        "CC0",
+        "g","l","o","v","e","s"
+      ],
+      "row":3,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"number",
+      "wrd":[
+        "cs/cislo.jpg",
+        "CC0",
+        "n","u","m","b","e","r"
+      ],
+      "row":6,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+  "12":{
+		"wrd0": {
+      "name":"dentist",
+      "wrd":[
+        "en/dentist.jpg",
+        "U.S. Government Work",
+        "d","e","n","t","i","s","t"
+      ],
+      "row":2,
+      "col":3,
+      "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"kiwi",
+      "wrd":[
+        "cs/kiwi.jpg",
+        "CC0",
+        "k","i","w","i"
+      ],
+      "row":6,
+      "col":2,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"wine",
+      "wrd":[
+        "cs/vino.jpg",
+        "CC0",
+        "w","i","n","e"
+      ],
+      "row":4,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+  "13":{
+    "wrd0": {
+      "name":"sunflower",
+      "wrd":[
+        "en/sunflower.jpg",
+        "CC0",
+        "s","u","n","f","l","o","w","e","r"
+      ],
+      "row":1,
+      "col":5,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"smoke",
+      "wrd":[
+        "cs/kour.jpg",
+        "CC0",
+        "s","m","o","k","e"
+      ],
+      "row":6,
+      "col":3,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"walrus",
+      "wrd":[
+        "cs/mroz.jpg",
+        "CC0",
+        "w","a","l","r","u","s"
+      ],
+      "row":2,
+      "col":1,
+      "orient":"horizontal"
+    }
+  },
+  "14":{
+    "wrd0": {
+      "name":"cave",
+      "wrd":[
+        "cs/jeskyne.jpg",
+        "CC0",
+        "c","a","v","e"
+      ],
+      "row":6,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd1": {
+      "name":"women",
+      "wrd":[
+        "cs/zeny.jpg",
+        "CC0",
+        "w","o","m","e","n"
+      ],
+      "row":3,
+      "col":4,
+      "orient":"vertical"
+    },
+    "wrd2": {
+      "name":"pot",
+      "wrd":[
+        "cs/hrnec.jpg",
+        "CC0",
+        "p","o","t"
+      ],
+      "row":4,
+      "col":3,
+      "orient":"horizontal"
+    }
+  },
+	"15":{
+    "wrd0": {
+      "name":"station",
+      "wrd":[
+        "cs/nadrazi .jpg",
+        "CC0",
+        "s","t","a","t","i","o","n"
+      ],
+      "row":2,
+      "col":3,
+        "orient":"vertical"
+    },
+    "wrd1": {
+      "name":"ship",
+      "wrd":[
+        "cs/lod.jpg",
+        "public domain",
+        "s","h","i","p"
+      ],
+      "row":6,
+      "col":1,
+      "orient":"horizontal"
+    },
+    "wrd2": {
+      "name":"crag",
+      "wrd":[
+        "cs/skala.jpg",
+        "CC0",
+        "c","r","a","g"
+      ],
+      "row":4,
+      "col":1,
+      "orient":"horizontal"
+    }
+  }
 }
